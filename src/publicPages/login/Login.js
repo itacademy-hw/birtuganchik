@@ -6,7 +6,7 @@ let LoginPage = styled.div `
         box-sizing: border-box;
     }
     margin: 0 auto;
-    width: 340px;
+    width: 250px;
     display: block;
     font-size: 14px;
     line-height: 1.5;
@@ -18,7 +18,12 @@ let LoginPage = styled.div `
         width: 100%;
     }
 
- 
+    input {
+        width: 100%;
+    }
+    h1{
+        text-align: center;
+    }
     li {
         display: inline;
         margin-right: 5px;
@@ -38,7 +43,7 @@ class Login extends Component {
         return (
             <LoginPage>
             <div className="login">
-                <h1>Sign in to BirTuganchik</h1>
+                <h1>Sign in to BTG</h1>
                 <p>Username or email address</p>
                 <input value={login}/>
                 <p>Password <a class="label-link" href="/password_reset">Forgot password?</a></p>
