@@ -1,12 +1,16 @@
-//Ivan_Branch
 import React, { Component } from "react";
+import Login from "./publicPages/login/Login";
 
 export default class App extends Component {
 
     render() {
 
         return (
-            <div></div>
+            <div className="Main">
+                <div className="header" >
+                    <Login />
+                </div>
+            </div>
         );
     }
 }
