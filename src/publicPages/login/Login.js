@@ -17,7 +17,6 @@ let LoginPage = styled.div `
         text-align: center;
         width: 100%;
     }
-
     input {
         width: 100%;
     }
@@ -29,6 +28,12 @@ let LoginPage = styled.div `
         margin-right: 5px;
         padding: 3px;
        }
+       .psw_reset {
+        float: right;
+       }
+       .crt_account {
+        float: right;
+       }
 `;
 
 class Login extends Component {
@@ -39,17 +44,24 @@ class Login extends Component {
 
     render() {
         let {login, password} = this.loginData;
+        /*  signIn = () => {
+            if (this.id.login_data === login){
+                if(this.id.password_data === password ){
+                    return "Sign In Success!";
+                }
+            }
+        }; */
 
         return (
             <LoginPage>
             <div className="login">
                 <h1>Sign in to BTG</h1>
-                <p>Username or email address</p>
-                <input value={login}/>
-                <p>Password <a class="label-link" href="/password_reset">Forgot password?</a></p>
-                <input value={password}/>
+                <p>Username/email</p>
+                <input type="text" id="login_data" />
+                <p>Password   <a class="psw_reset" href="/password_reset">Forgot password?</a></p>
+                <input type="text" id="password_data"/>
                 <button className="btn_signing">Sign in</button>
-                <p class="signup">New to BTG? <a href="/login">Create an account</a>.</p>
+                <p class="signup">New to BTG? <a className="crt_account" href="/login">Create an account.</a></p>
             </div>
             <div className="navigation_footer">
                 <ul>
