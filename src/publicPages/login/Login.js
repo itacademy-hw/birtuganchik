@@ -17,7 +17,6 @@ let LoginPage = styled.div `
         text-align: center;
         width: 100%;
     }
-    }
 `;
 
 class Login extends Component {
@@ -32,12 +31,13 @@ class Login extends Component {
         return (
             <LoginPage>
             <div className="login">
-                <h1>Sign in to BitTuganchik</h1>
+                <h1>Sign in to BirTuganchik</h1>
                 <p>Username or email address</p>
                 <input value={login}/>
                 <p>Password <a class="label-link" href="/password_reset">Forgot password?</a></p>
                 <input value={password}/>
                 <button className="btn_signing">Sign in</button>
+                <p class="signup">New to BTG? <a data-ga-click="Sign in, switch to sign up" href="/join?source=login">Create an account</a>.</p>
             </div>
             </LoginPage>
         );
