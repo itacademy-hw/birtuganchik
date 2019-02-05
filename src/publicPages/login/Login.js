@@ -41,9 +41,18 @@ let person = {
     password: '12345',
 }
 class Login extends Component {
-    state = {
-        login: '',
-        password: '',
+        state = {
+            login: "",
+            password: ""
+        };
+      
+    changePerson = (e, field) => {
+        let {login,password} = this.state;
+        this.setState({
+
+        })
+
+        console.log(login);
     };
      signIn = () => {
         let {login, password} = this.state;
@@ -51,21 +60,22 @@ class Login extends Component {
                 alert('Sign In Success!');
             }
         alert('Access deny! Check your login and password!')
-    }; 
+    };  
+
     render() {
         
 
 
         return (
             <LoginPage>
-                <div className="login">
+                <div className="Login">
                     <h1>Sign in to BTG</h1>
                     <p>Username/email</p>
-                    <input onChange={chengePerson = (e) => this.setState.login.value.field} type="text" id="login_data" />
-                    <p>Password   <a class="psw_reset" href="/password_reset">Forgot password?</a></p>
-                    <input onChange={(e) => this.setState.password.value.field} type="text" id="password_data"/>
-                    <button onClick={this.signIn(this.state.login.value, this.state.password.value)} className="btn_signing">Sign in</button>
-                    <p class="signup">New to BTG? <a className="crt_account" href="/login">Create an account.</a></p>
+                    <input field={this.state.login} onChange={(e, field) => this.changePerson(e, field)} type="text" id="login_data" />
+                    <p>Password   <a className="psw_reset" href="/password_reset">Forgot password?</a></p>
+                    <input type="text" id="password_data"/>
+                    <button /* onClick={(l, p) this.signIn(this.state.login.value, this.state.password.value)} */ className="btn_signing">Sign in</button>
+                    <p className="signup">New to BTG? <a className="crt_account" href="/login">Create an account.</a></p>
                 </div>
                 <div className="navigation_footer">
                     <ul>
