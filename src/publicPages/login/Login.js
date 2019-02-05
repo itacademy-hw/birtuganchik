@@ -47,34 +47,28 @@ class Login extends Component {
         };
       
     changePerson = (e, field) => {
-        let {login,password} = this.state;
         this.setState({
-
+            [field]: e.target.value
         })
-
-        console.log(login);
     };
      signIn = () => {
         let {login, password} = this.state;
         if (person.login === login && person.password === password){
-                alert('Sign In Success!');
+                return console.log('Sign In Success!');
             }
-        alert('Access deny! Check your login and password!')
+        console.log('Access deny! Check your login and password!')
     };  
 
     render() {
-        
-
-
         return (
             <LoginPage>
                 <div className="Login">
                     <h1>Sign in to BTG</h1>
                     <p>Username/email</p>
-                    <input field={this.state.login} onChange={(e, field) => this.changePerson(e, field)} type="text" id="login_data" />
+                    <input value={this.state.value} onChange={(e) => this.changePerson(e, 'login')} type="text" id="login_data" />
                     <p>Password   <a className="psw_reset" href="/password_reset">Forgot password?</a></p>
-                    <input type="text" id="password_data"/>
-                    <button /* onClick={(l, p) this.signIn(this.state.login.value, this.state.password.value)} */ className="btn_signing">Sign in</button>
+                    <input value={this.state.value} onChange={(e) => this.changePerson(e, 'password')} type="text" id="password_data"/>
+                    <button onClick={() => this.signIn()} className="btn_signing">Sign in</button>
                     <p className="signup">New to BTG? <a className="crt_account" href="/login">Create an account.</a></p>
                 </div>
                 <div className="navigation_footer">
