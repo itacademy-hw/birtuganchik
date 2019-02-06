@@ -11,12 +11,29 @@ let LoginPage = styled.div `
     font-size: 14px;
     line-height: 1.5;
 
+    .logo {
+        text-align: center;
+        padding-top: 30px;
+    }
+    .logoImg {
+        width: 180px;
+    }
+    .Login {
+        font-size: 14px;
+        padding: 20px;
+        border-radius: 5px;
+        border: 1px solid #d8dee2;
+    }
     .btn_signing{
         margin-top: 40px;
         display: block;
         text-align: center;
         width: 100%;
         padding: 7px;
+        cursor: pointer;
+        background-color: #2626ff;
+        background-image: linear-gradient(-180deg,#2e2ebd,#2626ff 90%);
+        font-weight: 600;
     }
     input {
         width: 100%;
@@ -29,12 +46,12 @@ let LoginPage = styled.div `
         margin-right: 5px;
         padding: 3px;
        }
-       .psw_reset {
+    .psw_reset {
         float: right;
-       }
-       .crt_account {
+    }
+    .crt_account {
         float: right;
-       }
+    }
 `;
 let person = {
     login: 'user1',
@@ -43,7 +60,8 @@ let person = {
 class Login extends Component {
         state = {
             login: "",
-            password: ""
+            password: "",
+            submitted: false
         };
       
     changePerson = (e, field) => {
@@ -62,14 +80,17 @@ class Login extends Component {
     render() {
         return (
             <LoginPage>
+                <div className="logo">
+                    <img className="logoImg" src='logo.jpg' alt="logo"/>
+                </div>
                 <div className="Login">
-                    <h1>Sign in to BTG</h1>
-                    <p>Username/email</p>
+                    <h1>Login</h1>
+                    <p>Username</p>
                     <input value={this.state.value} onChange={(e) => this.changePerson(e, 'login')} type="text" id="login_data" />
-                    <p>Password   <a className="psw_reset" href="/password_reset">Forgot password?</a></p>
+                    <p>Password <a className="psw_reset" href="/password_reset">Forgot password?</a></p>
                     <input value={this.state.value} onChange={(e) => this.changePerson(e, 'password')} type="text" id="password_data"/>
                     <button onClick={() => this.signIn()} className="btn_signing">Sign in</button>
-                    <p className="signup">New to BTG? <a className="crt_account" href="/login">Create an account.</a></p>
+                    <p className="signUp">New to BTG?    <a className="crt_account" href="/signUp">Create an account.</a></p>
                 </div>
                 <div className="navigation_footer">
                     <ul>
