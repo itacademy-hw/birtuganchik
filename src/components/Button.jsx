@@ -34,7 +34,7 @@ class Button extends Component {
     render() {
         let { text, login, remove, onclick } = this.props;
         return (
-            <Btn onClick={() => onclick()} login={login} remove={remove}>{text} </Btn>
+            <Btn onClick={() => onclick()} login={login} remove={remove}>{text}</Btn>
         );
     }
 }
