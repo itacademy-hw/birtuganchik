@@ -9,9 +9,11 @@ let Sel = styled.select`
 class Select extends Component {
 
     render() {
-        let { onchange } = this.props;
+        let { onchange, option } = this.props;
         return (
-            <Sel onChange={onchange}/>
+            <Sel onChange={onchange}>
+                <option>{option}</option>
+            </Sel>
         );
     }
 }

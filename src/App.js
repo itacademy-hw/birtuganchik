@@ -15,7 +15,7 @@ export default class App extends Component {
                 <Button text="Hello"/>
                 <Input />
                 <Checkbox />
-                <Select />
+                <Select option="Test"/>
             </div>
         );
     }

@@ -5,7 +5,7 @@ import Button from "./Button"
 let Head = styled.div`
     margin: 0 auto;
     width: 95%;
-    height: 60px;
+    height: 80px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -19,9 +19,9 @@ let Head = styled.div`
     }
 `
 let Image = styled.div`
-    height: 50px;
+    height: 70px;
     width: 200px;
-    background: url('./img/logo.png');
+    background: url('./img/logo.png') no-repeat;
     background-size: 100%;
 `
 
