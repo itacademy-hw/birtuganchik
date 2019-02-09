@@ -1,22 +1,17 @@
 import React, { Component } from "react";
+import Table from "./publicPages/table/Table";
 
 export default class App extends Component {
 
-    render() {
+  render() {
 
-        return (
-            <div></div>
-        );
-    }
+    return (
+      <div>
+        <Table/>
+      </div>
+  );
+ }
 }
-
-
-
-
-
-
-
-
 
 
 // const request = async () => {

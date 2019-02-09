@@ -1,2 +1,10 @@
 {
+    "files.autoSave": "afterDelay",
+    "editor.tabSize": 3,
+    "workbench.enableExperiments": false,
+    "workbench.iconTheme": "vs-seti",
+    "workbench.sideBar.location": "right",
+    "telemetry.enableCrashReporter": false,
+    "telemetry.enableTelemetry": false,
+    "liveServer.settings.CustomBrowser": "chrome:PrivateMode"
 }
