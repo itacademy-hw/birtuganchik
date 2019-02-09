@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-
-export default class App extends Component {
+import Contact from "./pages/contact/Contact";
+ class App extends Component {
 
     render() {
 
@@ -10,7 +10,7 @@ export default class App extends Component {
     }
 }
 
-
+export default Contact
 
 
 
@@ -26,3 +26,12 @@ export default class App extends Component {
 // }
 
 // request();
+/* login
+sign up
+about
+profile
+create
+button
+dashpoard
+checkbox
+*/
