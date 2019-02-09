@@ -1,16 +1,37 @@
 import React, { Component } from "react";
-import Contact from "./pages/contact/Contact";
- class App extends Component {
+import Button from "./components/Button"
+import Input from "./components/Input"
+import Checkbox from "./components/Checkbox"
+import Select from "./components/Select"
+import Header from "./components/Header"
+import Popup from "./components/Popup"
+
+export default class App extends Component {
 
     render() {
 
         return (
-            <div></div>
+            <div>
+                <Header />
+                <Button text="Hello"/>
+                <Input />
+                <Checkbox />
+                <Select option="Test"/>
+                <Popup title="test">
+                    <h2>hello</h2>
+                    <h2>hello</h2>
+                    <h2>hello</h2>
+                    <h2>hello</h2>
+                    <h2>hello</h2>
+                    <h2>hello</h2>
+                    <h2>hello</h2>
+                </Popup>
+            </div>
         );
     }
 }
 
-export default Contact
+// webpack, reactBuild
 
 
 
