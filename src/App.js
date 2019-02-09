@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-
+import DashBoard from "./pages/dashboard/DashBoard"
 export default class App extends Component {
 
     render() {
 
         return (
-            <div></div>
+             <DashBoard/>
+           
         );
     }
 }
