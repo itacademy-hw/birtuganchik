@@ -1,11 +1,18 @@
 import React, { Component } from "react";
+import Profile from "./pages/profile/Profile";
 
 export default class App extends Component {
-
+    state = { 
+        profiles: [
+            {nickname: 'Nickname', name: '', age: '',  sex: '', nationality: '', family: '', address: '',},
+        ]
+     }
     render() {
-
+        let {profiles} = this.state;
         return (
-            <div></div>
+            <div>
+                {profiles.map((item, index) => <Profile key={index} profile={item}/>)}
+            </div>
         );
     }
 }
