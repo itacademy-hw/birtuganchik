@@ -13,8 +13,8 @@ let PopupMes = styled.div`
     position:   fixed; 
 `
 let ShowPopup = styled.div`
-    width: 200px;
-    height: 200px;
+    width: 400px;
+    height: 300px;
     position: absolute;
     top: 50%;  
     left: 50%;
@@ -22,6 +22,8 @@ let ShowPopup = styled.div`
     background: white;
     color: black
     z-index: 9999;
+    overflow: scroll;
+    padding: 10px;
 `
 
 class Popup extends Component {

@@ -19,6 +19,12 @@ export default class App extends Component {
                 <Select option="Test"/>
                 <Popup title="test">
                     <h2>hello</h2>
+                    <h2>hello</h2>
+                    <h2>hello</h2>
+                    <h2>hello</h2>
+                    <h2>hello</h2>
+                    <h2>hello</h2>
+                    <h2>hello</h2>
                 </Popup>
             </div>
         );
