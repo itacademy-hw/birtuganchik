@@ -1,10 +1,12 @@
 import React, { Component } from "react";
-import Button from "./components/Button"
+/* import Button from "./components/Button"
 import Input from "./components/Input"
 import Checkbox from "./components/Checkbox"
 import Select from "./components/Select"
 import Header from "./components/Header"
-import Popup from "./components/Popup"
+import Popup from "./components/Popup" */
+//import Login from "./publicPages/login/Login";
+import SignUp from "./publicPages/signUp/SignUp";
 
 export default class App extends Component {
 
@@ -12,7 +14,7 @@ export default class App extends Component {
 
         return (
             <div>
-                <Header />
+                {/* <Header />
                 <Button text="Hello"/>
                 <Input />
                 <Checkbox />
@@ -25,7 +27,8 @@ export default class App extends Component {
                     <h2>hello</h2>
                     <h2>hello</h2>
                     <h2>hello</h2>
-                </Popup>
+                </Popup> */}
+                <SignUp />
             </div>
         );
     }

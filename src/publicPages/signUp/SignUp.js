@@ -69,23 +69,32 @@ class SignUp extends Component {
     };
 
     signUp = (e, field) => {
-        usersData.user.push({
+        this.usersData.push({
             [field]: e.target.value
         })
     };
 
-    createPerson = () => {
-        let {email, password} = this.state;
+    createPerson = (e, field) => {
+        let emailValid = e.target.value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
 
-        switch(email, password) {
-            case 'email':
-            email = email.value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
-                console.log('mail OK');
-              break;
-            default:
-              break;
-          }
-    }; 
+        if(field === 'email' ){
+            if (e === emailValid) {
+                this.setState({
+                    [field]: e.target.value
+                    })
+                }
+            return console.log('Invalid Email');
+            }
+            if(field === 'password'){
+                if(e.value.length >= 6){
+                    this.setState({
+                        [field]: e.target.value
+                        })
+                    }
+                return console.log('Password is too short!');
+                }
+            return console.log('1');
+        };
 
     render() {
         return (
@@ -115,7 +124,6 @@ class SignUp extends Component {
                         <li><a href="/contacts">Contacts</a></li>
                     </ul>
                 </div>
-
            </SignUpPage>
         );
     }
