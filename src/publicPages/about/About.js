@@ -1,15 +1,18 @@
 import React, { Component } from "react";
-import { About } from './publicPages/about/About';
-export default class App extends Component {
+
+
+
+ class About extends Component {
 
     render() {
 
         return (
             <div>
 
-            <About />
+            <h2>hello world</h2>
 
             </div>
         );
     }
 }
+export default About;
