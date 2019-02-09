@@ -5,6 +5,7 @@ import Checkbox from "./components/Checkbox"
 import Select from "./components/Select"
 import Header from "./components/Header"
 import Popup from "./components/Popup"
+import Contact from "./pages/contact/Contact";
 
 export default class App extends Component {
 
@@ -13,19 +14,7 @@ export default class App extends Component {
         return (
             <div>
                 <Header />
-                <Button text="Hello"/>
-                <Input />
-                <Checkbox />
-                <Select option="Test"/>
-                <Popup title="test">
-                    <h2>hello</h2>
-                    <h2>hello</h2>
-                    <h2>hello</h2>
-                    <h2>hello</h2>
-                    <h2>hello</h2>
-                    <h2>hello</h2>
-                    <h2>hello</h2>
-                </Popup>
+                <Contact />
             </div>
         );
     }

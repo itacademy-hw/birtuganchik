@@ -10,6 +10,7 @@ text-align: center;
  padding: 40px 30px 40px 80px;
  cursor: pointer;
  font-size: 50px; 
+
     
 `
 class Contact extends Component {
@@ -18,9 +19,8 @@ class Contact extends Component {
         return (
             <div className = "dava">
             <Head> ONE TWO GUN</Head>
-            <div> Главная</div>
-            <div> О компании</div>
-            <div>контакты</div>
+            <div> </div>
+            
             </div>
             
         )
