@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import Login from "./publicPages/login/Login";
+//import Login from "./publicPages/login/Login";
+import SignUp from "./publicPages/signUp/SignUp";
 
 export default class App extends Component {
 
@@ -8,7 +9,7 @@ export default class App extends Component {
         return (
             <div className="Main">
                 <div className="header" >
-                    <Login />
+                    <SignUp />
                 </div>
             </div>
         );
