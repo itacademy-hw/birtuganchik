@@ -5,11 +5,12 @@ import Checkbox from "./components/Checkbox"
 import Select from "./components/Select"
 import Header from "./components/Header"
 import Popup from "./components/Popup"
+import About from "./publicPages/about/About"
 
 export default class App extends Component {
 
     render() {
-
+    let {  } = this.props;
         return (
             <div>
                 <Header />
@@ -26,7 +27,11 @@ export default class App extends Component {
                     <h2>hello</h2>
                     <h2>hello</h2>
                 </Popup>
+
+                <About/>
+              
             </div>
+            
         );
     }
 }
