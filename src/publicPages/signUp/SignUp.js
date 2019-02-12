@@ -69,31 +69,31 @@ class SignUp extends Component {
     };
 
     signUp = (e, field) => {
-        this.usersData.push({
+        usersData.push({
             [field]: e.target.value
         })
     };
 
-    createPerson = (e, field) => {
-        let emailValid = e.target.value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
+    createPerson = (value, field) => {
+        let emailValid = value.match(/^[-!#$%&'*+\\/0-9=?A-Z^_a-z{|}~](\.?[-!#$%&'*+\\/0-9=?A-Z^_a-z`{|}~])*@[a-zA-Z0-9](-*\.?[a-zA-Z0-9])*\.[a-zA-Z](-?[a-zA-Z0-9])+$/);
 
         if(field === 'email' ){
-            if (e === emailValid) {
-                this.setState({
-                    [field]: e.target.value
+            if (!!emailValid) {
+                return this.setState({
+                    [field]: value
                     })
                 }
             return console.log('Invalid Email');
             }
             if(field === 'password'){
-                if(e.value.length >= 6){
-                    this.setState({
-                        [field]: e.target.value
+                console.log(value.length)
+                if(value.length > 6){
+                    return this.setState({
+                        [field]: value
                         })
                     }
                 return console.log('Password is too short!');
                 }
-            return console.log('1');
         };
 
     render() {
@@ -105,15 +105,15 @@ class SignUp extends Component {
                 <div className="SignUp">
                     <h1>Sign Up</h1>
                     <p>Email</p>
-                    <input value={this.state.value} onChange={(e) => this.createPerson(e, 'email')} type="text" id="signup_username" />
+                    <input value={this.state.value} onChange={(e) => this.createPerson(e.target.value, 'email')} type="text" id="signup_username" />
                     <p>First Name</p>
-                    <input value={this.state.value} onChange={(e) => this.createPerson(e, 'firstName')} type="text" id="signup_firstname"/>
+                    <input value={this.state.value} onChange={(e) => this.createPerson(e.target.value, 'firstName')} type="text" id="signup_firstname"/>
                     <p>Last Name</p>
-                    <input value={this.state.value} onChange={(e) => this.createPerson(e, 'lastName')} type="text" id="signup_lastname"/>
+                    <input value={this.state.value} onChange={(e) => this.createPerson(e.target.value, 'lastName')} type="text" id="signup_lastname"/>
                     <p>Age</p>
-                    <input value={this.state.value} onChange={(e) => this.createPerson(e, 'age')} type="text" id="signup_age"/>
+                    <input value={this.state.value} onChange={(e) => this.createPerson(e.target.value, 'age')} type="text" id="signup_age"/>
                     <p>Password</p>
-                    <input value={this.state.value} onChange={(e) => this.createPerson(e, 'password')} type="text" id="signup_password"/>
+                    <input value={this.state.value} onChange={(e) => this.createPerson(e.target.value, 'password')} type="text" id="signup_password"/>
                     
                     <button onClick={() => this.signUp()} className="btn_signUp">Sign Up</button>
                 </div>
