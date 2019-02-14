@@ -62,7 +62,6 @@ h6{
     margin:0px 0px 50px 160px; 
     width:260px;
     height:160px;
-    background: purple;
     box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14), 0 1px 1px 0 rgba(0,0,0,0.12), 0 1px 1px -3px rgba(0,0,0,0.2);
 
 }
@@ -70,7 +69,6 @@ h6{
     margin:0px 0px 0px 160px; 
     width:260px;
     height:160px;
-    background: darkturquoise;
     box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14), 0 1px 1px 0 rgba(0,0,0,0.12), 0 1px 1px -3px rgba(0,0,0,0.2);
 
 }
@@ -87,7 +85,7 @@ h6{
     margin:0px;
     width: 260px;
     height: 370px;
-    margin-right:70px;
+    margin-right: 30px;
     box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14), 0 1px 1px 0 rgba(0,0,0,0.12), 0 1px 1px -3px rgba(0,0,0,0.2);
 }
 
@@ -106,32 +104,46 @@ h6{
 
 
 
-
-
 class DashBoard extends Component {
-    state = {  }
+    state = {
+        myFamily:
+        [ 
+            {name:'', sex:'man', sity:'osh', },
+            {name:'', sex:'woman', sity:'bishkek', }
+        ]
+    };
+    
+
+
+
      
    
 
     render() {
+        let { myFamily } = this.state;
+
+        let time = new Date().getTime();
+        let day = new Date(time).getDay().toString();
+        let date = new Date(time).getDate().toString();
+        let year = new Date(time).getFullYear().toString();
         return (
-           
+         
           <Cart>
             <div className="container">
               <div className="project"> <h2>Dashboard</h2></div>
-              <div className="data"> <h3>02 Feb 19</h3> </div> 
+              <div className="data"> <h3 className="time">{`${day} ${date} ${year}`}</h3> </div> 
             </div>
 
             <div className="row">
               <div className="news"><h6>Men</h6></div>
-              <div className="news"><h6>Women</h6></div>
+              <div className="news"><h6>Women</h6><div className="female"></div></div>
               <div className="news"><h6>GrandMother</h6></div>
               <div className="news"><h6>GrandFather</h6></div>
             </div>
 
             <div className="container2">
-                <div className="total">total</div>
-                <div className="age">age</div>
+                <div className="total">total:<div>quantity:{myFamily.length}</div></div>
+                <div className="age">age </div>
             </div>
 
             <div className="container3">
