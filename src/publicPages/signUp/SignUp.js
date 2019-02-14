@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styled from 'styled-components';
+//import Button from '../../components/Button';
 
 let SignUpPage = styled.div `
     *{
@@ -48,55 +49,53 @@ let SignUpPage = styled.div `
     }
 `;
 
-let usersData = {
-    email: '',
-    firstName: '',
-    lastName: '',
-    age: '',
-    password: ''
-};
-
 class SignUp extends Component {
     state = {
         user: {
             email: '',
             firstName: '',
             lastName: '',
-            age: '',
+            age: 0,
             password: ''
         },
         submitted: false
     };
 
-    signUp = (e, field) => {
-        usersData.push({
-            [field]: e.target.value
-        })
-    };
+
 
     createPerson = (value, field) => {
-        let emailValid = value.match(/^[-!#$%&'*+\\/0-9=?A-Z^_a-z{|}~](\.?[-!#$%&'*+\\/0-9=?A-Z^_a-z`{|}~])*@[a-zA-Z0-9](-*\.?[a-zA-Z0-9])*\.[a-zA-Z](-?[a-zA-Z0-9])+$/);
+        let {password} = this.state.user;
+        this.setState({
+            user: {...this.state.user, [field]: value}
+        }); 
 
-        if(field === 'email' ){
-            if (!!emailValid) {
-                return this.setState({
-                    [field]: value
-                    })
-                }
-            return console.log('Invalid Email');
+         let emailValid = value.match(/^[-!#$%&'*+\\/0-9=?A-Z^_a-z{|}~](\.?[-!#$%&'*+\\/0-9=?A-Z^_a-z`{|}~])*@[a-zA-Z0-9](-*\.?[a-zA-Z0-9])*\.[a-zA-Z](-?[a-zA-Z0-9])+$/);
+        
+         if(field === 'email'){
+             if(!!emailValid){
+                this.setState({user: {...this.state.user, [field]: value}})
+             }
+             return console.log('Invalid Email');
+        }
+
+        if(field === 'password'){
+            if(field === 'password' && password.value.length > 6){
+                this.setState({user: {...this.state.user, [field]: value}})
             }
-            if(field === 'password'){
-                console.log(value.length)
-                if(value.length > 6){
-                    return this.setState({
-                        [field]: value
-                        })
-                    }
-                return console.log('Password is too short!');
-                }
+            return console.log('Password is too short!');
+        }
+        //console.log(this.state.user);
+    };
+
+        signUp = () => {
+            let usersData =  [];
+            usersData.push({
+                ...this.state.user
+            })
         };
 
     render() {
+        
         return (
            <SignUpPage>
                 <div className="logo">
@@ -116,6 +115,7 @@ class SignUp extends Component {
                     <input value={this.state.value} onChange={(e) => this.createPerson(e.target.value, 'password')} type="text" id="signup_password"/>
                     
                     <button onClick={() => this.signUp()} className="btn_signUp">Sign Up</button>
+                    {/* <Button onClick={() => this.signUp()} signUp={'signUp'} text={'Sign Up'}/> */}
                 </div>
                 <div className="navigation_footer">
                     <ul>

@@ -15,6 +15,15 @@ let Btn = styled.button`
     ${props => props.login && `
         background: green;
         transition: 0.2s;
+        margin-top: 15px;
+        :hover {
+            opacity: .8;
+        }`
+        }
+    ${props => props.signUp && `
+        background: green;
+        transition: 0.2s;
+        margin-top: 15px;
         :hover {
             opacity: .8;
         }`
@@ -32,10 +41,10 @@ let Btn = styled.button`
 class Button extends Component {
     state = {  }
     render() {
-        let { text, login, remove, onclick } = this.props;
+        let { text, login, signUp, remove, onClick } = this.props;
 
         return (
-            <Btn onClick={() => onclick && onclick()} login={login} remove={remove}>{text}</Btn>
+            <Btn onClick={() => onClick && onClick()} login={login} signUp={signUp} remove={remove}>{text}</Btn>
         );
     }
 }

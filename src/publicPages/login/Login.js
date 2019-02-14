@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styled from 'styled-components';
-//import Input from './components/Input';
+import Button from '../../components/Button';
 
 let LoginPage = styled.div `
     *{
@@ -90,7 +90,8 @@ class Login extends Component {
                     <input value={this.state.value} onChange={(e) => this.changePerson(e, 'login')} type="text" id="login_data" />
                     <p>Password <a className="psw_reset" href="/password_reset">Forgot password?</a></p>
                     <input value={this.state.value} onChange={(e) => this.changePerson(e, 'password')} type="text" id="password_data"/>
-                    <button onClick={() => this.signIn()} className="btn_signing">Sign in</button>
+                    {/* <button onClick={() => this.signIn()} className="btn_signing">Sign in</button> */}
+                    <Button onClick={() => this.signIn()} login={'login'} text={'Sign in'}/>
                     <p className="signUp">New to BTG?    <a className="crt_account" href="/signUp">Create an account.</a></p>
                 </div>
                 <div className="navigation_footer">
