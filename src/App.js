@@ -12,20 +12,7 @@ export default class App extends Component {
 
         return (
             <div>
-                <Header />
-                <Button text="Hello"/>
-                <Input />
-                <Checkbox />
-                <Select option="Test"/>
-                <Popup title="test">
-                    <h2>hello</h2>
-                    <h2>hello</h2>
-                    <h2>hello</h2>
-                    <h2>hello</h2>
-                    <h2>hello</h2>
-                    <h2>hello</h2>
-                    <h2>hello</h2>
-                </Popup>
+                
             </div>
         );
     }
