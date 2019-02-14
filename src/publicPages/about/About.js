@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-
-import Logo from './logo/Logo';
+import Header from '../../components/Header';
 import Content from './content/Content';
 
 
@@ -27,9 +26,8 @@ export default class About extends Component {
    
     return (
       <AboutPage>
-        <Logo/>
+        <Header/>
         <Content/>
-        
       </AboutPage>
     );
   }

@@ -1,11 +1,5 @@
 import React, { Component } from "react";
-import Button from "./components/Button"
-import Input from "./components/Input"
-import Checkbox from "./components/Checkbox"
-import Select from "./components/Select"
-import Header from "./components/Header"
-import Popup from "./components/Popup"
-import About from "./publicPages/about/About"
+import About from './publicPages/about/About';
 
 export default class App extends Component {
 
@@ -13,23 +7,7 @@ export default class App extends Component {
     let {  } = this.props;
         return (
             <div>
-                <Header />
-                <Button text="Hello"/>
-                <Input />
-                <Checkbox />
-                <Select option="Test"/>
-                <Popup title="test">
-                    <h2>hello</h2>
-                    <h2>hello</h2>
-                    <h2>hello</h2>
-                    <h2>hello</h2>
-                    <h2>hello</h2>
-                    <h2>hello</h2>
-                    <h2>hello</h2>
-                </Popup>
-
                 <About/>
-              
             </div>
             
         );
