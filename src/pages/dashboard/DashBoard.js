@@ -1,10 +1,7 @@
 import React, { Component } from "react";
 import styled from 'styled-components';
 
-
-
 let Cart = styled.div`
-
 
 .container{
     width:100%;
@@ -26,7 +23,7 @@ h6{
 }
 
 .project {
-    
+
 }
 
 .data{
@@ -37,7 +34,7 @@ h6{
     width: 1020px;
     display: flex;
     justify-content: flex-end;
-    
+
 }
 .news {
     display: inline-block;
@@ -55,18 +52,18 @@ h6{
      width:450px;
      height:370px;
      margin:0px;
-     
+
 }
 
 .total {
-    margin:0px 0px 50px 160px; 
+    margin:0px 0px 50px 160px;
     width:260px;
     height:160px;
     box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14), 0 1px 1px 0 rgba(0,0,0,0.12), 0 1px 1px -3px rgba(0,0,0,0.2);
 
 }
 .age {
-    margin:0px 0px 0px 160px; 
+    margin:0px 0px 0px 160px;
     width:260px;
     height:160px;
     box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14), 0 1px 1px 0 rgba(0,0,0,0.12), 0 1px 1px -3px rgba(0,0,0,0.2);
@@ -77,7 +74,7 @@ h6{
     display: inline-block;
     width: 620px;
     height: 370px;
-   
+
 }
 
 .sities{
@@ -96,66 +93,68 @@ h6{
     height: 370px;
     box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14), 0 1px 1px 0 rgba(0,0,0,0.12), 0 1px 1px -3px rgba(0,0,0,0.2);
 }
-
-
 `;
-
-
-
-
 
 class DashBoard extends Component {
     state = {
         myFamily:
-        [ 
-            {name:'', sex:'man', sity:'osh', },
-            {name:'', sex:'woman', sity:'bishkek', }
-        ]
+            [
+                { sex: 'man', city: 'osh', age: 18, name: 'Daniil', surname: 'Kurishov' },
+                { sex: 'man', city: 'bishkek', age: 27, name: 'Jaynagul', surname: 'Kudaybergenova' },
+                { sex: 'man', city: 'bishkek', age: 22, name: 'Jaynagul', surname: 'Kudaybergenova' },
+                { sex: 'woman', city: 'bishkek', age: 29, name: 'Jaynagul', surname: 'Kudaybergenova' },
+                { sex: 'woman', city: 'bishkek', age: 12, name: 'Jaynagul', surname: 'Kudaybergenova' },
+                { sex: 'woman', city: 'bishkek', age: 7, name: 'Jaynagul', surname: 'Kudaybergenova' },
+                { sex: 'woman', city: 'bishkek', age: 7, name: 'Jaynagul', surname: 'Kudaybergenova' },
+            ]
     };
-    
-
-
-
-     
-   
 
     render() {
         let { myFamily } = this.state;
+        let totalMan = myFamily.filter(pers => pers.sex === 'man').length;
+        let totalWoman = myFamily.filter(pers => pers.sex === 'woman').length;
 
         let time = new Date().getTime();
         let day = new Date(time).getDay().toString();
         let date = new Date(time).getDate().toString();
         let year = new Date(time).getFullYear().toString();
+
         return (
-         
-          <Cart>
-            <div className="container">
-              <div className="project"> <h2>Dashboard</h2></div>
-              <div className="data"> <h3 className="time">{`${day} ${date} ${year}`}</h3> </div> 
-            </div>
 
-            <div className="row">
-              <div className="news"><h6>Men</h6></div>
-              <div className="news"><h6>Women</h6><div className="female"></div></div>
-              <div className="news"><h6>GrandMother</h6></div>
-              <div className="news"><h6>GrandFather</h6></div>
-            </div>
+            <Cart>
+                <div className="container">
+                    <div className="project"> <h2>Dashboard</h2></div>
+                    <div className="data"> <h3 className="time">{`${day} ${date} ${year}`}</h3> </div>
+                </div>
 
-            <div className="container2">
-                <div className="total">total:<div>quantity:{myFamily.length}</div></div>
-                <div className="age">age </div>
-            </div>
+                <div className="row">
+                    <div className="news">
+                        <h6>Men</h6>
+                        <div className="man">{totalMan}</div>
+                    </div>
+                    <div className="news">
+                        <h6>Women</h6>
+                        <div className="female">{totalWoman}</div>
+                    </div>
+                    <div className="news">
+                        <h6>GrandMother</h6>
+                    </div>
+                    <div className="news">
+                        <h6>GrandFather</h6>
+                    </div>
+                </div>
 
-            <div className="container3">
-                <div className="sities"> </div>
-                <div className="birthdays"></div>
-            </div>
-                
-            
-             
-          </Cart>
-             
-            
+                <div className="container2">
+                    <div className="total">total: {myFamily.length}</div>
+                    <div className="age">age </div>
+                </div>
+
+                <div className="container3">
+                    <div className="sities"> </div>
+                    <div className="birthdays"></div>
+                </div>
+
+            </Cart>
         );
     }
 }
