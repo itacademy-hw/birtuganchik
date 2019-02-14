@@ -1,18 +1,37 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
+import styled from 'styled-components';
+import Header from '../../components/Header';
+import Content from './content/Content';
 
 
 
- class About extends Component {
 
-    render() {
 
-        return (
-            <div>
+let AboutPage = styled.div`
+    display: flex;
+    flex-wrap: wrap;
 
-            <h2>hello world</h2>
-
-            </div>
-        );
+    .container {
+        width: 80%;
+        padding: 100px 0px 0px 100px;
     }
+    
+`;
+
+
+
+export default class App extends Component {
+  
+  render() {
+   
+    return (
+      <AboutPage>
+        <Header/>
+        <Content/>
+      </AboutPage>
+    );
+  }
 }
-export default About;
+
+
+
