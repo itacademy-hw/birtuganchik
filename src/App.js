@@ -1,14 +1,33 @@
 import React, { Component } from "react";
-import SignUp from "./publicPages/signUp/SignUp"
+import Tooltip from "./components/Tooltip";
+import Flash from "./components/Flash";
 
 export default class App extends Component {
+    state = {
+        visible: false
+    }
+
+    hide = () => {
+        this.setState({
+            visible: true
+        })
+        setTimeout(() => this.setState({visible: false}),2000)
+    }
 
     render() {
-    let {  } = this.props;
+        
+    let { visible } = this.state;
         return (
-            <div>
-                <SignUp/>
+            <div style={{display: "inline"}}>
+                Hello! Lets Test Tooltip! <Tooltip text="ПРОТЕСТИМ">TEST</Tooltip>
+                <button onClick={() => this.hide()}>TEST FLASH</button>
+                <button onClick={() => this.hide()}>TEST FLASH</button>
+                <button onClick={() => this.hide()}>TEST FLASH</button>
+                <button onClick={() => this.hide()}>TEST FLASH</button>
+                {visible && <Flash visible={this.state.visible} message="WRONG ANSWER"/>}
             </div>
+            
+
             
         );
     }
