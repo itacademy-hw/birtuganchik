@@ -6,47 +6,35 @@ let SignUpPage = styled.div `
     .bg {
         position: absolute;
         z-index: 1;
-        left: -10px;
-        top: -10px;
-        right: -10px;
-        bottom: -10px;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0px;
         filter: blur(5px);
         background: url('bg.jpg') no-repeat center;
         background-size: cover;
     }
-    *{padding:0;margin:0;}
-      .container {
+    .container {
+        display: grid;
+        color: #fff;
         position: relative;
         z-index: 2;
-        color: #fff;
-        }
-    //margin: 0;
-    padding: 1em;
-    font-size: 14px;
-    line-height: 1.5;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-gap: 1em;
-   
-
-
+        padding: 40px;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: auto;
+        grid-template-areas:
+            "SignUp_L SignUp_R"
+            "navigation_footer navigation_footer"
+    }
     h1{
         text-align: center;
     }
-     .SignUp_L {
-        float: left;
+    .SignUp_L {
         background-color: #d2cfcfad;
-        margin-top: 60px;
-        height: 400px;
-        width: 50%;
     }
     .SignUp_R {
-        float: right;
         background-color: #d2cfcfad;
-        margin-top: 60px;
-        height: 400px;
-        width: 50%;
-    } 
+    }
     .logo {
         text-align: center;
         padding-top: 30px;
@@ -62,17 +50,11 @@ let SignUpPage = styled.div `
         margin-right: 5px;
         padding: 3px;
     }
-/*     .btn_signUp{
-        margin-top: 40px;
-        display: block;
+    .navigation_footer {
+        grid-column: 1 / span 2;
+        grid-row: 2;
         text-align: center;
-        width: 100%;
-        padding: 7px;
-        cursor: pointer;
-        background-color: #2626ff;
-        background-image: linear-gradient(-180deg,#2e2ebd,#2626ff 90%);
-        font-weight: 600;
-    } */
+    }
 `;
 
 class SignUp extends Component {
@@ -93,10 +75,10 @@ class SignUp extends Component {
         let {password} = this.state.user;
         this.setState({
             user: {...this.state.user, [field]: value}
-        }); 
+        });
 
          let emailValid = value.match(/^[-!#$%&'*+\\/0-9=?A-Z^_a-z{|}~](\.?[-!#$%&'*+\\/0-9=?A-Z^_a-z`{|}~])*@[a-zA-Z0-9](-*\.?[a-zA-Z0-9])*\.[a-zA-Z](-?[a-zA-Z0-9])+$/);
-        
+
          if(field === 'email'){
              if(!!emailValid){
                 this.setState({user: {...this.state.user, [field]: value}})
@@ -121,7 +103,7 @@ class SignUp extends Component {
         };
 
     render() {
-        
+
         return (
            <SignUpPage>
             <div className='bg'></div>
@@ -132,7 +114,7 @@ class SignUp extends Component {
                 </div>
                 <div>
                     <span>1</span>
-                    
+
                 </div>
                 </div>
                 <div className="SignUp_R">
@@ -147,7 +129,7 @@ class SignUp extends Component {
                     <input value={this.state.value} onChange={(e) => this.createPerson(e.target.value, 'age')} type="text" id="signup_age"/>
                     <p>Password</p>
                     <input value={this.state.value} onChange={(e) => this.createPerson(e.target.value, 'password')} type="text" id="signup_password"/>
-                    
+
                    {/*  <button onClick={() => this.signUp()} className="btn_signUp">Sign Up</button> */}
                     <Button onClick={() => this.signUp()} signUp={'signUp'} text={'Sign Up'}/>
                 </div>
