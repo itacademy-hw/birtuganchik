@@ -1,26 +1,52 @@
 import React, { Component } from "react";
 import styled from 'styled-components';
-//import Button from '../../components/Button';
+import Button from '../../components/Button';
 
 let SignUpPage = styled.div `
-    *{
-        box-sizing: border-box;
+    .bg {
+        position: absolute;
+        z-index: 1;
+        left: -10px;
+        top: -10px;
+        right: -10px;
+        bottom: -10px;
+        filter: blur(5px);
+        background: url('bg.jpg') no-repeat center;
+        background-size: cover;
     }
-    margin: 0 auto;
-    width: 250px;
-    display: block;
+    *{padding:0;margin:0;}
+      .container {
+        position: relative;
+        z-index: 2;
+        color: #fff;
+        }
+    //margin: 0;
+    padding: 1em;
     font-size: 14px;
     line-height: 1.5;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 1em;
+   
+
 
     h1{
         text-align: center;
     }
-    .SignUp {
-        font-size: 14px;
-        padding: 20px;
-        border-radius: 5px;
-        border: 1px solid #d8dee2;
+     .SignUp_L {
+        float: left;
+        background-color: #d2cfcfad;
+        margin-top: 60px;
+        height: 400px;
+        width: 50%;
     }
+    .SignUp_R {
+        float: right;
+        background-color: #d2cfcfad;
+        margin-top: 60px;
+        height: 400px;
+        width: 50%;
+    } 
     .logo {
         text-align: center;
         padding-top: 30px;
@@ -29,14 +55,14 @@ let SignUpPage = styled.div `
         width: 180px;
     }
     input {
-        width: 100%;
+        width: 90%;
     }
     li {
         display: inline;
         margin-right: 5px;
         padding: 3px;
     }
-    .btn_signUp{
+/*     .btn_signUp{
         margin-top: 40px;
         display: block;
         text-align: center;
@@ -46,7 +72,7 @@ let SignUpPage = styled.div `
         background-color: #2626ff;
         background-image: linear-gradient(-180deg,#2e2ebd,#2626ff 90%);
         font-weight: 600;
-    }
+    } */
 `;
 
 class SignUp extends Component {
@@ -98,10 +124,18 @@ class SignUp extends Component {
         
         return (
            <SignUpPage>
+            <div className='bg'></div>
+            <div class="container">
+                <div className="SignUp_L">
                 <div className="logo">
                     <img className="logoImg" src='logo.jpg' alt="logo"/>
                 </div>
-                <div className="SignUp">
+                <div>
+                    <span>1</span>
+                    
+                </div>
+                </div>
+                <div className="SignUp_R">
                     <h1>Sign Up</h1>
                     <p>Email</p>
                     <input value={this.state.value} onChange={(e) => this.createPerson(e.target.value, 'email')} type="text" id="signup_username" />
@@ -114,8 +148,8 @@ class SignUp extends Component {
                     <p>Password</p>
                     <input value={this.state.value} onChange={(e) => this.createPerson(e.target.value, 'password')} type="text" id="signup_password"/>
                     
-                    <button onClick={() => this.signUp()} className="btn_signUp">Sign Up</button>
-                    {/* <Button onClick={() => this.signUp()} signUp={'signUp'} text={'Sign Up'}/> */}
+                   {/*  <button onClick={() => this.signUp()} className="btn_signUp">Sign Up</button> */}
+                    <Button onClick={() => this.signUp()} signUp={'signUp'} text={'Sign Up'}/>
                 </div>
                 <div className="navigation_footer">
                     <ul>
@@ -124,6 +158,7 @@ class SignUp extends Component {
                         <li><a href="/contacts">Contacts</a></li>
                     </ul>
                 </div>
+            </div>
            </SignUpPage>
         );
     }
