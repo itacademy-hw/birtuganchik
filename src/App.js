@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import SignUp from "./publicPages/signUp/SignUp"
+import About from "./publicPages/about/About"
 
 export default class App extends Component {
 
@@ -7,7 +7,7 @@ export default class App extends Component {
 
         return (
             <div>
-                <SignUp/>
+                <About/>
             </div>
         );
     }

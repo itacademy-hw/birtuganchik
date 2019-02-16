@@ -3,10 +3,6 @@ import styled from 'styled-components';
 import Header from '../../components/Header';
 import Content from './content/Content';
 
-
-
-
-
 let AboutPage = styled.div`
     display: flex;
     flex-wrap: wrap;
@@ -18,9 +14,7 @@ let AboutPage = styled.div`
     
 `;
 
-
-
-export default class App extends Component {
+export default class About extends Component {
   
   render() {
    

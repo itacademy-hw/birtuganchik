@@ -42,14 +42,16 @@ let ContentDiv = styled.div`
     h5{
         font-size: 19px;
         font-family: cursive;
+        color: #000000c4;
     }
 
     p{
         font-family: cursive; 
+        color: #000000bf;
     }
     
 `;
-let ContInner  = styled.div`
+let ContInner = styled.div`
     margin: 60px 0 0 2px;
     width: 280px;
     height: 160px;
@@ -79,55 +81,61 @@ let Text = styled.p`
 
 
 class Content extends Component {
-  
-  
 
-  
-  
-  render() {
-    let { clicked } = this.props;
-    return (
-      <ContentDiv>
+    render() {
 
-               <div>
-                    <Image/>
+        return (
+            <ContentDiv>
+
+                <div>
+                    <Image />
                     <Wrds>
                         <h1>- это то, как люди сближаются!</h1>
                     </Wrds>
-               </div>
-        
-                    <h5>Цель нашего сайта - укреплять родственные связи наших пользователей.</h5>
+                </div>
+
+                <h5>Цель нашего сайта - укреплять родственные связи наших пользователей.</h5>
 
 
-                    <p>Если у вас много родственников и вы задаетесь вопросом кто из них кто для вас?
-                       То вы попали в сайт который поможет вам разобраться в родственных узах.
-                       Работает все это очень просто. После регистрации на нашем сайте вы можете отправить
-                       ссылку, на номер того человека с которым близко не знакомы, но знаете что он ваш дальний родственник.
-                       А тот в свою очередь, заполнит анкету о себе подробно.
+                <p>Если у вас много родственников и вы задаетесь вопросом кто из них кто для вас?
+                   То вы попали в сайт который поможет вам разобраться в родственных узах.
+                   Работает все это очень просто. После регистрации на нашем сайте вы можете отправить
+                   ссылку, на номер того человека с которым близко не знакомы, но знаете что он ваш дальний родственник.
+                   А тот в свою очередь, заполнит анкету о себе подробно.
                        </p>
-        <ContInner>
+                
 
-              <Text>февраль 2019</Text>
-              <Button text='подробнее' onClick={() => this.setState({clicked: true})}/>
-                <Popup/>
-              </ContInner>
-              
+                <Box popupContent={"asasas"} title="Февраль 2019"/>
+                <Box popupContent={'sqasasas'} title="штаб квартира"/>
+                <Box popupContent={'qwqwqwqw'} title="наша команда"/>
+            </ContentDiv>
+        );
+    }
+}
 
-        <ContInner>
-            <Text>штаб квартира</Text> 
-            <Button text='подробнее'/>
-              <Popup/>
-             </ContInner>
+class Box extends Component {
+    state = {
+        show: false,
+      };
 
-        <ContInner>
-              <Text>наша команда</Text> 
-              <Button text='подробнее'/>
-                <Popup/>
-              </ContInner>
+    render() {
+        let { show } = this.state;
+        let { title, popupContent } = this.props;
 
-      </ContentDiv>
-    );
-  }
+        return(
+            <ContInner>
+                <Text>{title}</Text>
+                <Button text='подробнее' onclick={() => this.setState({show: true})}/>
+                <Popup 
+                    title="Zagolovok" 
+                    hidePopup={() => this.setState({show: false})} 
+                    showPopup={show}
+                >
+                    {popupContent} 
+                </Popup>
+            </ContInner>
+        )
+    }
 }
 
 export default Content;

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import styled from 'styled-components';
 
-
 let Overlay = styled.div`
     opacity:    0.5;
     background: #000;
@@ -27,11 +26,13 @@ let Body = styled.div`
 `
 
 class Popup extends Component {
+  
+
     render() {
         let { title, showPopup, hidePopup } = this.props;
         return (
             showPopup &&
-                <>
+                <> 
                     <Overlay onClick={() => hidePopup()}/>
                     <Body>
                         <h1>{title}</h1>
