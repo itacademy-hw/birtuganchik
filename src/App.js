@@ -1,10 +1,5 @@
 import React, { Component } from "react";
-import Button from "./components/Button"
-import Input from "./components/Input"
-import Checkbox from "./components/Checkbox"
-import Select from "./components/Select"
-import Header from "./components/Header"
-import Popup from "./components/Popup"
+import SignUp from "./publicPages/signUp/SignUp"
 
 export default class App extends Component {
 
