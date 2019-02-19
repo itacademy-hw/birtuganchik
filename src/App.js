@@ -1,48 +1,25 @@
 import React, { Component } from "react";
-import Button from "./components/Button"
-import Input from "./components/Input"
-import Checkbox from "./components/Checkbox"
-import Select from "./components/Select"
-import Header from "./components/Header"
-import Popup from "./components/Popup"
+import Profile from "./pages/profile/Profile";
 
 export default class App extends Component {
     state = { 
         profiles: [
-            {nickname: 'Nickname', name: '', age: '',  sex: '', nationality: '', family: '', address: '',},
+            {nickname: 'Ashirov Aldiyar', name: 'Aldiyar', surname: 'Ashirov', nationality: 'Kyrgyz', sex: 'Male', age: '16', address: 'Manas Street, 7',},
         ]
      }
     render() {
         let {profiles} = this.state;
         return (
             <div>
-                <Header />
-                <Button text="Hello"/>
-                <Input />
-                <Checkbox />
-                <Select option="Test"/>
-                <Popup title="test">
-                    <h2>hello</h2>
-                    <h2>hello</h2>
-                    <h2>hello</h2>
-                    <h2>hello</h2>
-                    <h2>hello</h2>
-                    <h2>hello</h2>
-                    <h2>hello</h2>
-                </Popup>
+                <Profile profile={profiles[0]}/>
             </div>
         );
     }
 }
 
+
+
 // webpack, reactBuild
-
-
-
-
-
-
-
 
 // const request = async () => {
 //     const response = await fetch('https://api.com/values/1');
