@@ -16,55 +16,79 @@ let SignUpPage = styled.div `
     }
     .container {
         display: grid;
-        color: #fff;
+        color: black;
         position: relative;
         z-index: 2;
         padding: 40px;
-        grid-template-columns: 50% 50%;
+        justify-content: center;
+        grid-template-columns: 35% 35%;
         grid-template-rows: auto;
         grid-template-areas:
             "SignUp_L SignUp_R"
-            "navigation_footer navigation_footer"
+            "footer footer"
     }
     h1{
         text-align: center;
     }
     .SignUp_L {
-        background-color: #d2cfcfad;
+        background-color: #b8b7e282;
+        background: url('bg2.jpg') no-repeat center;
+        background-size: cover;
     }
     .SignUp_R {
-        background-color: #d2cfcfad;
+        background-color: #b8b7e282;
+        padding: 10px;
     }
     .logo {
         text-align: center;
-        padding-top: 30px;
+        padding-top: 20px;
     }
     .logoImg {
         width: 180px;
     }
     input {
-        width: 90%;
+        width: 40%;
     }
     li {
         display: inline;
         margin-right: 5px;
         padding: 3px;
     }
-    .navigation_footer {
+
+    .border { 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .dots {
+        width: 2px;
+        height: 40px;
+        background: blue;
+        transition: 0.3s;
+    }
+    .dots:hover {
+        transform: scale(1.2);
+        background: red;
+    }
+ }
+
+    .footer {
         grid-column: 1 / span 2;
         grid-row: 2;
         text-align: center;
+        //background-color: #b8b7e282;
     }
 `;
+
+let usersData =  [];
 
 class SignUp extends Component {
     state = {
         user: {
-            email: '',
-            firstName: '',
-            lastName: '',
-            age: 0,
-            password: ''
+            email: undefined,
+            firstName: undefined,
+            lastName: undefined,
+            age: undefined,
+            password: undefined
         },
         submitted: false
     };
@@ -72,7 +96,6 @@ class SignUp extends Component {
 
 
     createPerson = (value, field) => {
-        let {password} = this.state.user;
         this.setState({
             user: {...this.state.user, [field]: value}
         });
@@ -81,22 +104,20 @@ class SignUp extends Component {
 
          if(field === 'email'){
              if(!!emailValid){
-                this.setState({user: {...this.state.user, [field]: value}})
+                return this.setState({user: {...this.state.user, [field]: value}})
              }
              return console.log('Invalid Email');
         }
 
         if(field === 'password'){
-            if(field === 'password' && password.value.length > 6){
-                this.setState({user: {...this.state.user, [field]: value}})
+            if(value.length > 6){
+                return this.setState({user: {...this.state.user, [field]: value}})
             }
             return console.log('Password is too short!');
         }
         //console.log(this.state.user);
     };
-
         signUp = () => {
-            let usersData =  [];
             usersData.push({
                 ...this.state.user
             })
@@ -107,33 +128,45 @@ class SignUp extends Component {
         return (
            <SignUpPage>
             <div className='bg'></div>
-            <div class="container">
+            <div className="container">
                 <div className="SignUp_L">
                 <div className="logo">
-                    <img className="logoImg" src='logo.jpg' alt="logo"/>
+                    <img className="logoImg" src='logo.png' alt="logo"/>
                 </div>
                 <div>
-                    <span>1</span>
 
                 </div>
                 </div>
                 <div className="SignUp_R">
-                    <h1>Sign Up</h1>
-                    <p>Email</p>
-                    <input value={this.state.value} onChange={(e) => this.createPerson(e.target.value, 'email')} type="text" id="signup_username" />
-                    <p>First Name</p>
-                    <input value={this.state.value} onChange={(e) => this.createPerson(e.target.value, 'firstName')} type="text" id="signup_firstname"/>
-                    <p>Last Name</p>
-                    <input value={this.state.value} onChange={(e) => this.createPerson(e.target.value, 'lastName')} type="text" id="signup_lastname"/>
-                    <p>Age</p>
-                    <input value={this.state.value} onChange={(e) => this.createPerson(e.target.value, 'age')} type="text" id="signup_age"/>
-                    <p>Password</p>
-                    <input value={this.state.value} onChange={(e) => this.createPerson(e.target.value, 'password')} type="text" id="signup_password"/>
-
-                   {/*  <button onClick={() => this.signUp()} className="btn_signUp">Sign Up</button> */}
+                    <div>
+                        <h1>Sign Up</h1>
+                        <p>Email</p>
+                        <input onChange={(e) => this.createPerson(e.target.value, 'email')} type="text" id="signup_username" />
+                        <p>First Name</p>
+                        <input value={this.state.value} onChange={(e) => this.createPerson(e.target.value, 'firstName')} type="text" id="signup_firstname"/>
+                        <p>Last Name</p>
+                        <input value={this.state.value} onChange={(e) => this.createPerson(e.target.value, 'lastName')} type="text" id="signup_lastname"/>
+                        <p>Age</p>
+                        <input value={this.state.value} onChange={(e) => this.createPerson(e.target.value, 'age')} type="text" id="signup_age"/>
+                        <p>Password</p>
+                        <input value={this.state.value} onChange={(e) => this.createPerson(e.target.value, 'password')} type="text" id="signup_password"/>
+                    </div>
+                <div className="border"> 
+                    <span  className="dots"/>
+                    <span  className="dots"/>
+                    <span  className="dots"/>
+                    <span  className="dots"/>
+                    <span  className="dots"/>
+                    <span  className="dots"/>
+                    <span  className="dots"/>
+                    <span  className="dots"/>
+                </div>
+                <div>
+                    {/*  <button onClick={() => this.signUp()} className="btn_signUp">Sign Up</button> */}
                     <Button onClick={() => this.signUp()} signUp={'signUp'} text={'Sign Up'}/>
                 </div>
-                <div className="navigation_footer">
+                </div>
+                <div className="footer">
                     <ul>
                         <li><a href="/home">Home</a></li>
                         <li><a href="/about">About</a></li>
