@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Button from '../../components/Button';
 
 let SignUpPage = styled.div`
+    
     .bg {
         position: absolute;
         z-index: 1;
@@ -70,7 +71,7 @@ let SignUpPage = styled.div`
             background: black;
             transition: 0.5s;
         }
-        .dot.active {
+        .dot.${props => props.set} {
             transform: scale(1.4);
             background: red;
         }
@@ -95,7 +96,7 @@ class SignUp extends Component {
             age: undefined,
             password: undefined
         },
-        active: false,
+        set: undefined,
         submitted: false
     };
 
@@ -112,9 +113,9 @@ class SignUp extends Component {
 
         if (field === 'email') {
             if (!!emailValid) {
-                return this.setState({ user: { ...this.state.user, [field]: value } })
+                return this.setState({ user: { ...this.state.user, [field]: value, set: 'email'} })
             }
-            return console.log('Invalid Email');
+            return this.setState({ user: { ...this.state, set: false}});
         }
 
         if (field === 'password') {
@@ -132,8 +133,7 @@ class SignUp extends Component {
     };
 
     render() {
-        let { active } = this.state;
-
+        let { set } = this.state;
         return (
             <SignUpPage>
                 <div className='bg'></div>
@@ -150,21 +150,30 @@ class SignUp extends Component {
                         <div className="flexed">
                             <form className="signup_form">
                                 <p>Email</p>
-                                <input onChange={(e) => {
+                                <input set={set} onChange={(e) => {
                                         this.createPerson(e.target.value, 'email');
-                                        this.setState({active: true})}
+                                        this.setState({set: 'email'})}
                                     } type="text" id="signup_username" />
                                 <p>First Name</p>
-                                <input onChange={(e) => {
+                                <input set={set} onChange={(e) => {
                                         this.createPerson(e.target.value, 'firstName');
-                                        this.setState({active: true})}
+                                        this.setState({set: 'firstName'})}
                                         } type="text" id="signup_firstname" />
                                 <p>Last Name</p>
-                                <input onChange={(e) => this.createPerson(e.target.value, 'lastName')} type="text" id="signup_lastname" />
+                                <input set={set} onChange={(e) => {
+                                        this.createPerson(e.target.value, 'lastName');
+                                        this.setState({set: 'lastName'})}
+                                        } type="text" id="signup_lastname" />
                                 <p>Age</p>
-                                <input onChange={(e) => this.createPerson(e.target.value, 'age')} type="text" id="signup_age" />
+                                <input set={set} onChange={(e) => {
+                                        this.createPerson(e.target.value, 'age');
+                                        this.setState({set: 'age'})}
+                                        } type="text" id="signup_age" />
                                 <p>Password</p>
-                                <input onChange={(e) => this.createPerson(e.target.value, 'password')} type="text" id="signup_password" />
+                                <input set={set} onChange={(e) => {
+                                        this.createPerson(e.target.value, 'password');
+                                        this.setState({set: 'password'})}
+                                          } type="text" id="signup_password" />
                                 <div>
                                     {/*  <button onClick={() => this.signUp()} className="btn_signUp">Sign Up</button> */}
                                     <Button onClick={() => this.signUp()} signUp={'signUp'} text={'Sign Up'} />
@@ -172,15 +181,15 @@ class SignUp extends Component {
                             </form>
                             <div className="dots">
                                 <span className="dot na" />
-                                <span className={`dot email ${active && 'active' | 'email'}`} />
+                                <span className={`dot ${set === 'email' && 'email'}`} />
                                 <span className="dot na" />
-                                <span className={`dot ${active && 'active'}`} />
+                                <span className={`dot ${set === 'firstName' && 'firstName'}`} />
                                 <span className="dot na" />
-                                <span className={`dot ${active && 'active'}`} />
+                                <span className={`dot ${set === 'lastName' && 'lastName'}`} />
                                 <span className="dot na" />
-                                <span className={`dot ${active && 'active'}`} />
+                                <span className={`dot ${set === 'age' && 'age'}`} />
                                 <span className="dot na" />
-                                <span className={`dot ${active && 'active'}`} />
+                                <span className={`dot ${set === 'password' && 'password'}`} />
                             </div>
                         </div>
                     </div>
