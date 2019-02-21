@@ -6,11 +6,11 @@ import Content from './content/Content';
 let AboutPage = styled.div`
     display: flex;
     flex-wrap: wrap;
+    background: url(../img/fon.jpg)no-repeat center;
+    background-size:100% 900px;
+    height: 900px;
 
-    .container {
-        width: 80%;
-        padding: 100px 0px 0px 100px;
-    }
+    
     
 `;
 

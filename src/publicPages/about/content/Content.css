@@ -1,0 +1,45 @@
+.frs {
+    width: 100%;
+    height: 200px;
+    background: red;
+    position: relative;
+    margin:  -96px 0 0 0;
+}
+.skn{
+    width: 100%;
+    height: 200px;
+    background: red;
+    position: relative;
+    margin:  -116px 0 0 0;
+}
+.thr{
+    width: 100%;
+    height: 200px;
+    background: red;
+    position: relative;
+    margin:  -116px 0 0 0;
+}
+.frth{
+    width: 100%;
+    height: 200px;
+    background: red;
+    position: relative;
+    margin:  -116px 0 0 0;
+}
+.innerF{
+    display: inline-block;
+    width: 48%;
+    height: 75%;
+    border: 1px solid;
+}
+.innerS{
+    display: inline-block;
+    width: 48%;
+    height: 75%;
+    border: 1px solid;
+}
+.socialNetworks{
+    width: 90%;
+    height: 40px;
+    border: 1px solid;
+}
