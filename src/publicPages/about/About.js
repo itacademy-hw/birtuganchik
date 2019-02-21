@@ -8,16 +8,12 @@ let AboutPage = styled.div`
     flex-wrap: wrap;
     background: url(../img/fon.jpg)no-repeat center;
     background-size:100% 900px;
-    height: 900px;
-
-    
-    
 `;
 
 export default class About extends Component {
-  
+
   render() {
-   
+
     return (
       <AboutPage>
         <Header/>
