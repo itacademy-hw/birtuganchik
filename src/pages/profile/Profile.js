@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faIgloo } from '@fortawesome/free-solid-svg-icons';
+import { faIgloo } from "@fortawesome/free-solid-svg-icons";
+// import { faFacebookF } from '@fortawesome/free-brands-svg-icons';
 
 let OneProfile = styled.div`
 
@@ -26,21 +27,21 @@ ${OneProfile}{
 .container1{
     width: 35%;
     height: inherit;
-    background-color: #4f3333;
+    background-color: #4c3e3d;
     text-align: center;
     color: #d1d1d1;
-    border-right: 1px solid #0b021a;
+    border-right: 1px solid #453737;
 }
 .container2{
     width: 15%;
     height: inherit;
-    background-color: #4f3333;
+    background-color: #4c3e3d;
 }
 .container3{
     width: 50%;
     height: inherit;
     background-color: #ede6e3;
-    border-left: 1px solid #0b021a;
+    border-left: 1px solid #453737;
 }
 
 
@@ -51,16 +52,15 @@ ${OneProfile}{
     height: 150px;
     background-size: 100%;
     margin: auto;
-    border-bottom: 1px solid #0b021a;
+    border-bottom: 1px solid #453737;
 }
 
 
 
 .container1 .profile{
     height: 300px;
-    border-bottom: 1px solid #0b021a;
     margin-top: -27%;
-    // background-color: red;
+    border-bottom: 1px solid #453737;
 }
 .profile .avatar{
     background: url('./img/Profile/avatar.jpg') no-repeat;
@@ -69,12 +69,13 @@ ${OneProfile}{
     background-size: 100%;
     margin: auto;
     border-radius: 50%;
-    border: 5px solid #d1d1d1;
+    border: 5px solid #d4c3ae;
 }
 .profile .nickname{
     margin-top: 3%;
     font-weight: bolder;
     font-size: 20px;
+    color: #ddcfbd;
 }
 .profile button{
     width: 33%;
@@ -85,34 +86,34 @@ ${OneProfile}{
     border-radius: 10%;
 }
 .profile .message{
-    background: #d1d1d1;
-    color: #4f3333;
+    background-color: #d1c0aa;
+    color: #493a39;
 }
 .profile .contact{
     margin-top: 2%;
-    background: #bd744f;
-    color: #d1d1d1;
+    background-color: #9b6450;
+    color: #ddcfbd;
 }
 
 
 
 .container1 .socials{
-    height: 180px;
     text-align: center;
     margin: auto;
-    background-color: red;
 }
-.socials ul{
-    width: 30%;
-    list-style: none;
+.socials button{
+    margin: auto;
+    margin-top: 1%;
+    text-align: center;
+    width: 33%;
+    height: 40px;
+    display: block;
+    background-color: #4c3e3d;
+    color: #ddcfbd;
+    border: none;
+    border-bottom: 2px solid #453737;
 }
-.socials ul li{
-    height: 30px;
-    margin-top: 5%;
-    border-bottom: 1px solid #0b021a;
-    cursor: pointer;
-}
-.socials ul .pinterest{
+.socials .pinterest{
     border: none;
 }
 
@@ -125,35 +126,36 @@ ${OneProfile}{
     width: 100%;
     height: 63px;
     display: block;
-    background: #4f3333;
-    color: #d1d1d1;
+    background-color: #4c3e3d;
+    color: #ddcfbd;
     border: none;
-    border-top: 1px solid #0b021a;
+    border-top: 1px solid #453737;
 }
 .pages .tree{
-    border-bottom: 1px solid #0b021a;
+    border-bottom: 1px solid #453737;
 }
 
 
 
 .container3 .overview{
-
+    // padding-top: 10%;
 }
 .overview h1{
-    color: #4f3333;
+    color: #493a39;
     font-weight: lighter;
     text-align: center;
-    margin-top: 2.5%;
-}
-.overview ul{
-    color: #4f3333;
-    margin-left: 1%;
-    margin-top: 7%;
+    margin-top: 3%;
+    margin-bottom: 7%;
 }
 .overview p{
+    text-align: center;
     color: black;
+}
+.overview h3{
+    color: #493a39;
+    margin-top: -3%;
     font-size: 20px;
-    margin-top: 1%;
+    text-align: center;
 }
 
 `;
@@ -176,12 +178,12 @@ class Profile extends Component {
                             <a><button className='contact'>Contact</button></a>
                         </div>
                         <div className='socials'>
-                            <ul>
-                                <a><li className='facebook'>Facebook</li></a>
-                                <a><li className='twiiter'>Twitter</li></a>
-                                <a><li className='google'>Google+</li></a>
-                                <a><li className='pinterest'>Pinterest</li></a>                    
-                            </ul>
+                            <FontAwesomeIcon icon='igloo'></FontAwesomeIcon>
+                            {/* <FontAwesomeIcon icon='facebook-f'></FontAwesomeIcon> */}
+                            <a><button className='facebook'>Facebook</button></a>
+                            <a><button className='twiiter'>Twitter</button></a>
+                            <a><button className='google+'>Google+</button></a>
+                            <a><button className='pinterest'>Pinterest</button></a>
                         </div>
                     </div>
                     
@@ -202,20 +204,18 @@ class Profile extends Component {
                     <div className='container3'>
                         <div className='overview'>
                             <h1>Overview</h1>
-                            <ul>
-                                <li>Name:</li>
-                                <p>{profile.name}</p>
-                                <li>Surname:</li>
-                                <p>{profile.surname}</p>
-                                <li>Nationality:</li>
-                                <p>{profile.nationality}</p>
-                                <li>Sex:</li>
-                                <p>{profile.sex}</p>
-                                <li>Age:</li>
-                                <p>{profile.age}</p>
-                                <li>Address:</li>
-                                <p>{profile.address}</p>
-                            </ul>
+                                <p>Name:</p>
+                                <h3>{profile.name}</h3>
+                                <p>Surname:</p>
+                                <h3>{profile.surname}</h3>
+                                <p>Nationality:</p>
+                                <h3>{profile.nationality}</h3>
+                                <p>Sex:</p>
+                                <h3>{profile.sex}</h3>
+                                <p>Age:</p>
+                                <h3>{profile.age}</h3>
+                                <p>Address:</p>
+                                <h3>{profile.address}</h3>
                         </div>
                     </div>
 
