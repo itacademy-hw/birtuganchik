@@ -15,7 +15,8 @@ let Btn = styled.button`
     ${props => props.login && `
         background: green;
         transition: 0.2s;
-        margin-top: 15px;
+        margin-top: 40%;
+        margin-left: 10%;
         :hover {
             opacity: .8;
         }`

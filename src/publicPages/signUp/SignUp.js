@@ -26,7 +26,7 @@ let SignUpPage = styled.div`
         grid-template-rows: auto;
         grid-template-areas:
             "SignUp_L SignUp_R"
-            "footer footer"
+            "footer footer";
     }
     h1{
         text-align: left;
@@ -71,7 +71,7 @@ let SignUpPage = styled.div`
             background: black;
             transition: 0.5s;
         }
-        .dot.${props => props.set} {
+        .dot.age, .dot.lastName, .dot.firstName, .dot.password, .dot.email  {
             transform: scale(1.4);
             background: red;
         }
@@ -90,13 +90,13 @@ let usersData = [];
 class SignUp extends Component {
     state = {
         user: {
-            email: undefined,
-            firstName: undefined,
-            lastName: undefined,
-            age: undefined,
-            password: undefined
+            email: '',
+            firstName: '',
+            lastName: '',
+            age: '',
+            password: ''
         },
-        set: undefined,
+        set: '',
         submitted: false
     };
 
@@ -113,9 +113,9 @@ class SignUp extends Component {
 
         if (field === 'email') {
             if (!!emailValid) {
-                return this.setState({ user: { ...this.state.user, [field]: value, set: 'email'} })
+                return this.setState({ user: { ...this.state.user, [field]: value} })
             }
-            return this.setState({ user: { ...this.state, set: false}});
+            return console.log('Invalid Email');
         }
 
         if (field === 'password') {
@@ -132,6 +132,7 @@ class SignUp extends Component {
         })
     };
 
+    
     render() {
         let { set } = this.state;
         return (
@@ -180,17 +181,18 @@ class SignUp extends Component {
                                 </div>
                             </form>
                             <div className="dots">
-                                <span className="dot na" />
+                                <span className="dot" />
                                 <span className={`dot ${set === 'email' && 'email'}`} />
-                                <span className="dot na" />
+                                <span className="dot" />
                                 <span className={`dot ${set === 'firstName' && 'firstName'}`} />
-                                <span className="dot na" />
+                                <span className="dot" />
                                 <span className={`dot ${set === 'lastName' && 'lastName'}`} />
-                                <span className="dot na" />
+                                <span className="dot" />
                                 <span className={`dot ${set === 'age' && 'age'}`} />
-                                <span className="dot na" />
+                                <span className="dot" />
                                 <span className={`dot ${set === 'password' && 'password'}`} />
                             </div>
+                        <Button onClick={() => this.signIn()} login={'login'} text={'Sign In'} />
                         </div>
                     </div>
                     <div className="footer">
