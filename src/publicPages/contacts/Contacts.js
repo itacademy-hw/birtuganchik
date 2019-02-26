@@ -20,26 +20,21 @@ let Adr = styled.div`
     border-style: groove;
     border-width: 2px;
 `
-let Image = styled.div`
-
-`
 
 class Contacts extends Component {
 
     render() {
         return (
             <div>
-                <Head> ONE TWO GUN</Head>
+                <Head>ONE TWO GUN</Head> 
                 <Adr><li>ADRESS:</li> </Adr>
-                <Adr>г. Бишкек, Жумабека 141 ориентир(эркиндик/жумабека)</Adr>
-                <Adr> <li>Phone:</li></Adr>
-                <Adr> +996 (772) 000 562</Adr>
+                <h1>г. Бишкек, Жумабека 141 ориентир(эркиндик/жумабека)</h1>
+                <Adr><li>Phone:</li></Adr>
+                <h1> +996 (772) 000 562</h1>
                 <Adr><li>Operation mode:</li> </Adr>
-                <Adr>Вт, Чт, Сб 19:00-21:00</Adr>
+                <h1>Вт, Чт, Сб 19:00-21:00</h1>
                 <Adr><li>E-mail:</li> </Adr>
-                <Adr>itacademy98@gmail.com: </Adr>
-                <Image />
-                <div className="okey"></div>
+                <h1>itacademy98@gmail.com: </h1>
             </div>
 
         )
