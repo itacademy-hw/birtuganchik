@@ -1,0 +1,93 @@
+  .parentDiv{
+    display: inline-block;
+    position: relative;
+    border: 1px solid;
+    width: 80%;
+    height: 80%;
+    margin: 4% 10%;
+        }
+  #top-left{
+    width: 45%;
+    height:45%;
+    border:1px solid;
+    display: inline-block;
+    position: relative;
+    left:30px;
+    border-radius: 6px;
+    background: #e54c85;
+    box-shadow: #00000078 0px 2px 5px 2px;
+    
+  }
+  #top-right{
+    width: 45%;
+    height:45%;
+    border:1px solid;
+    display: inline-block;
+    position: relative;
+    left: 70px;
+    border-radius: 6px;
+    background:  #1a70f9;
+    box-shadow: #00000078 0px 2px 5px 2px;
+  }
+  #bottom-left{
+    width: 45%;
+    height:45%;
+    border:1px solid;
+    display: inline-block;
+    position: relative;
+    top: 38px;
+    left: 30px;
+    border-radius: 6px;
+    background:#2b5a84;
+    box-shadow: #00000078 0px 2px 5px 2px;
+  }
+  #bottom-right{
+    width: 45%;
+    height:45%;
+    border:1px solid;
+    display: inline-block;
+    position: relative;
+    top: 38px;
+    left:70px;
+    border-radius: 6px;
+    background: #1bb1e4;
+    box-shadow: #00000078 0px 2px 5px 2px;
+  }
+  .innerDivL{
+    width: 45%;
+    height: 70%;
+    display: inline-block;
+    left: 32px;
+    position: relative;
+  }
+  .innerDiv{
+    width: 44%;
+    height: 52%;
+    display: inline-block;
+    position: relative;
+    left: 43px;
+    bottom: 1px;
+    background: url(https://i.ytimg.com/vi/0rgm1lo26ZY/maxresdefault.jpg);
+    background-size: cover;
+    box-shadow: #00000078 0px 2px 5px 2px;
+  }
+  .socialNet{
+    width: 90%;
+    height: 45px;
+    top: 15px;
+    left: 5%;
+    display: inline-block;
+    position: relative;
+  }
+  h2{
+    color: white;
+  }
+  .text{
+    display: table;
+    color: white;
+  }
+  .btn{
+    display: table;
+    top: 10px;
+    position: relative;
+  }
