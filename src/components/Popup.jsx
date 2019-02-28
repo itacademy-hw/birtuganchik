@@ -14,13 +14,13 @@ let Overlay = styled.div`
 `
 let Body = styled.div`
     width: 400px;
-    height: 300px;
+    height: 400px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background: white;
-    color: black
+    color: black;
     z-index: 9999;
     overflow-y: auto;
     padding: 10px;

@@ -1,14 +1,30 @@
 import React, { Component } from "react";
-import SignUp from "./publicPages/signUp/SignUp"
+import Tooltip from "./components/Tooltip";
+import Flash from "./components/Flash";
+import UiCard from "./components/UiCard";
 
 export default class App extends Component {
+    state = {
+        visible: false
+    }
+
+    hide = () => {
+        this.setState({
+            visible: true
+        })
+        setTimeout(() => this.setState({visible: false}),2000)
+    }
 
     render() {
-
+        
+    let { visible } = this.state;
         return (
             <div>
                 
             </div>
+            
+
+            
         );
     }
 }
