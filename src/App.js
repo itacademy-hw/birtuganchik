@@ -1,35 +1,36 @@
 import React, { Component } from "react";
-/* import Button from "./components/Button"
-import Input from "./components/Input"
-import Checkbox from "./components/Checkbox"
-import Select from "./components/Select"
-import Header from "./components/Header"
-import Popup from "./components/Popup" */
-//import Login from "./publicPages/login/Login";
-import SignUp from "./publicPages/signUp/SignUp";
+import Tooltip from "./components/Tooltip";
+import Flash from "./components/Flash";
+import UiCard from "./components/UiCard";
 
 export default class App extends Component {
+    state = {
+        visible: false
+    }
+
+    hide = () => {
+        this.setState({
+            visible: true
+        })
+        setTimeout(() => this.setState({visible: false}),2000)
+    }
 
     render() {
-
+        
+    let { visible } = this.state;
         return (
-            <div>
-                {/* <Header />
-                <Button text="Hello"/>
-                <Input />
-                <Checkbox />
-                <Select option="Test"/>
-                <Popup title="test">
-                    <h2>hello</h2>
-                    <h2>hello</h2>
-                    <h2>hello</h2>
-                    <h2>hello</h2>
-                    <h2>hello</h2>
-                    <h2>hello</h2>
-                    <h2>hello</h2>
-                </Popup> */}
-                <SignUp />
+            <div style={{display: "inline"}}>
+                Hello! Lets Test Tooltip! <Tooltip text="ПРОТЕСТИМ">TEST</Tooltip>
+                <button onClick={() => this.hide()}>TEST FLASH</button>
+                <button onClick={() => this.hide()}>TEST FLASH</button>
+                <button onClick={() => this.hide()}>TEST FLASH</button>
+                <button onClick={() => this.hide()}>TEST FLASH</button>
+                {visible && <Flash visible={this.state.visible} success="true" message="WRONG ANSWER"/>}
+                <UiCard image="https://wow.mmotop.ru/uploads/server/screenshot/5130/square_png">IBBKJBKBWKBKWBFLWLNL</UiCard>
             </div>
+            
+
+            
         );
     }
 }
