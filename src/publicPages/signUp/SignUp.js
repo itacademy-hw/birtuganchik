@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styled from 'styled-components';
 import Button from '../../components/Button';
-import Login from "../../publicPages/login/Login";
+//import Login from "../../publicPages/login/Login";
 
 let SignUpPage = styled.div`
     .bg {
@@ -39,6 +39,19 @@ let SignUpPage = styled.div`
     .SignUp_R {
         background-color: #b8b7e282;
         padding: 10px;
+    }
+    .inputSignUp{
+        background: transparent;
+        border:0 none;
+        border-top: 1px;
+        margin:0;
+        padding:0;
+        outline: none;
+        -moz-placeholder { color: red; }
+        ::-webkit-input-placeholder {color:black;}
+        ::-moz-placeholder          {color:black;}
+        :-moz-placeholder           {color:black;}
+        :-ms-input-placeholder      {color:black;}
     }
     .flexed {
         display: flex;
@@ -85,9 +98,6 @@ let SignUpPage = styled.div`
     }
 `;
 
-let Input = styled.input`
-
-`;
 
 let usersData = [];
 
@@ -155,11 +165,13 @@ class SignUp extends Component {
                         <h1>Sign Up</h1>
                         <div className="flexed">
                             <form className="signup_form">
-                                <p>Email</p>
+
                                 <input
+                                    placeholder='Your email'
                                     onChange={(e) => this.createPerson(e.target.value, 'email')}
                                     type="text"
                                     id="signup_username"
+                                    className={set === 'email' && set}
                                 />
                                 <p>First Name</p>
                                 <input
