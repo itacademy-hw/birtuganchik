@@ -4,7 +4,6 @@ import Button from '../../components/Button';
 import Login from "../../publicPages/login/Login";
 
 let SignUpPage = styled.div`
-    
     .bg {
         position: absolute;
         z-index: 1;
@@ -86,6 +85,10 @@ let SignUpPage = styled.div`
     }
 `;
 
+let Input = styled.input`
+
+`;
+
 let usersData = [];
 
 class SignUp extends Component {
@@ -102,11 +105,12 @@ class SignUp extends Component {
     };
 
     changeInput = () => {
-            
+
     };
 
     createPerson = (value, field) => {
         this.setState({
+            set: field,
             user: { ...this.state.user, [field]: value }
         });
 
@@ -152,30 +156,39 @@ class SignUp extends Component {
                         <div className="flexed">
                             <form className="signup_form">
                                 <p>Email</p>
-                                <input set={set} onChange={(e) => {
-                                        this.createPerson(e.target.value, 'email');
-                                        this.setState({set: 'email'})}
-                                    } type="text" id="signup_username" />
+                                <input
+                                    onChange={(e) => this.createPerson(e.target.value, 'email')}
+                                    type="text"
+                                    id="signup_username"
+                                />
                                 <p>First Name</p>
-                                <input set={set} onChange={(e) => {
-                                        this.createPerson(e.target.value, 'firstName');
-                                        this.setState({set: 'firstName'})}
-                                        } type="text" id="signup_firstname" />
+                                <input
+                                    onChange={(e) => this.createPerson(e.target.value, 'firstName')}
+                                    type="text"
+                                    id="signup_firstname"
+                                    className={set === 'firstName' && set}
+                                />
                                 <p>Last Name</p>
-                                <input set={set} onChange={(e) => {
-                                        this.createPerson(e.target.value, 'lastName');
-                                        this.setState({set: 'lastName'})}
-                                        } type="text" id="signup_lastname" />
+                                <input
+                                    onChange={(e) => this.createPerson(e.target.value, 'lastName')}
+                                    type="text"
+                                    id="signup_lastname"
+                                    className={set === 'lastName' && set}
+                                />
                                 <p>Age</p>
-                                <input set={set} onChange={(e) => {
-                                        this.createPerson(e.target.value, 'age');
-                                        this.setState({set: 'age'})}
-                                        } type="text" id="signup_age" />
+                                <input
+                                    onChange={(e) => this.createPerson(e.target.value, 'age')}
+                                    type="text"
+                                    id="signup_age"
+                                    className={set === 'age' && set}
+                                />
                                 <p>Password</p>
-                                <input set={set} onChange={(e) => {
-                                        this.createPerson(e.target.value, 'password');
-                                        this.setState({set: 'password'})}
-                                          } type="text" id="signup_password" />
+                                <input
+                                    onChange={(e) => this.createPerson(e.target.value, 'password')}
+                                    type="text"
+                                    id="signup_password"
+                                    className={set === 'password' && set}
+                                />
                                 <div>
                                     {/*  <button onClick={() => this.signUp()} className="btn_signUp">Sign Up</button> */}
                                     <Button onClick={() => this.signUp()} signUp={'signUp'} text={'Sign Up'} />
