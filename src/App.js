@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Tooltip from "./components/Tooltip";
 import Flash from "./components/Flash";
+import UiCard from "./components/UiCard";
 
 export default class App extends Component {
     state = {
@@ -24,7 +25,8 @@ export default class App extends Component {
                 <button onClick={() => this.hide()}>TEST FLASH</button>
                 <button onClick={() => this.hide()}>TEST FLASH</button>
                 <button onClick={() => this.hide()}>TEST FLASH</button>
-                {visible && <Flash visible={this.state.visible} message="WRONG ANSWER"/>}
+                {visible && <Flash visible={this.state.visible} success="true" message="WRONG ANSWER"/>}
+                <UiCard image="https://wow.mmotop.ru/uploads/server/screenshot/5130/square_png">IBBKJBKBWKBKWBFLWLNL</UiCard>
             </div>
             
 

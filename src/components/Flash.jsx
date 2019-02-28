@@ -17,7 +17,7 @@ let FlashNotification = styled.div`
     color: #fff;
     border-radius: 5px;
     text-align: center;
-
+    z-index: 9999;
     ${props => props.success && `
         background: green;
     `}
@@ -39,7 +39,7 @@ class Flash extends Component {
         let { message , success , error , visible } = this.props;
         return (
             <div>
-                <FlashNotification visible={visible} success={success}>
+                <FlashNotification visible={visible} success={success} error={error}>
                     {message}
                 </FlashNotification>
                 
