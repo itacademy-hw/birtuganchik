@@ -19,14 +19,8 @@ export default class App extends Component {
         
     let { visible } = this.state;
         return (
-            <div style={{display: "inline"}}>
-                Hello! Lets Test Tooltip! <Tooltip text="ПРОТЕСТИМ">TEST</Tooltip>
-                <button onClick={() => this.hide()}>TEST FLASH</button>
-                <button onClick={() => this.hide()}>TEST FLASH</button>
-                <button onClick={() => this.hide()}>TEST FLASH</button>
-                <button onClick={() => this.hide()}>TEST FLASH</button>
-                {visible && <Flash visible={this.state.visible} success="true" message="WRONG ANSWER"/>}
-                <UiCard onClick={() => console.log("hey")} header="Header" footer="Footer" image="https://wow.mmotop.ru/uploads/server/screenshot/5130/square_png" imageRight={true}>Body</UiCard>
+            <div>
+                
             </div>
             
 
