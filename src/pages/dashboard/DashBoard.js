@@ -101,16 +101,45 @@ class DashBoard extends Component {
             [
                 { sex: 'man', city: 'osh', age: 18, name: 'Daniil', surname: 'Kurishov' },
                 { sex: 'man', city: 'bishkek', age: 27, name: 'Jaynagul', surname: 'Kudaybergenova' },
-                { sex: 'man', city: 'bishkek', age: 22, name: 'Jaynagul', surname: 'Kudaybergenova' },
-                { sex: 'woman', city: 'bishkek', age: 29, name: 'Jaynagul', surname: 'Kudaybergenova' },
-                { sex: 'woman', city: 'bishkek', age: 12, name: 'Jaynagul', surname: 'Kudaybergenova' },
+                { sex: 'man', city: 'batken', age: 22, name: 'Jaynagul', surname: 'Kudaybergenova' },
+                { sex: 'woman', city: 'kyzyl-kiya', age: 29, name: 'Jaynagul', surname: 'Kudaybergenova' },
+                { sex: 'woman', city: 'tokmok', age: 12, name: 'Jaynagul', surname: 'Kudaybergenova' },
                 { sex: 'woman', city: 'bishkek', age: 7, name: 'Jaynagul', surname: 'Kudaybergenova' },
-                { sex: 'woman', city: 'bishkek', age: 7, name: 'Jaynagul', surname: 'Kudaybergenova' },
+                { sex: 'woman', city: 'moscow', age: 7, name: 'Jaynagul', surname: 'Kudaybergenova' },
             ]
     };
 
     render() {
         let { myFamily } = this.state;
+        let cities = [];
+        let counts = [];
+        myFamily.map((pers) => cities.push(pers.city))
+
+        function countCities(arr) {
+            arr.sort();
+
+            let current = null;
+            let cnt = 0;
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] !== current) {
+                    if (cnt > 0) {
+                        counts.push({[current]: cnt});
+                    }
+                    current = arr[i];
+                    cnt = 1;
+                } else {
+                    cnt++;
+                }
+            }
+            if (cnt > 0) {
+                counts.push({[current]: cnt});
+            }
+
+        }
+        countCities(cities);
+        console.log(counts)
+         
+
         let totalMan = myFamily.filter(pers => pers.sex === 'man').length;
         let totalWoman = myFamily.filter(pers => pers.sex === 'woman').length;
 
