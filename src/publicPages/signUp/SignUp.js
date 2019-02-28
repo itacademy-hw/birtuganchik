@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import styled from 'styled-components';
 import Button from '../../components/Button';
+import Login from "../../publicPages/login/Login";
 
 let SignUpPage = styled.div`
     
