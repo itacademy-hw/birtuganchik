@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 import styled from 'styled-components';
 
-let Cart = styled.div`
+let shadow = '0 1px 1px 0 rgba(0,0,0,0.14), 0 1px 1px 0 rgba(0,0,0,0.12), 0 1px 1px -3px rgba(0,0,0,0.2)';
 
-.container{
+let Cart = styled.div`
+.title{
     width:100%;
     height:100px;
     display: flex;
     justify-content:center;
-    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14), 0 1px 1px 0 rgba(0,0,0,0.12), 0 1px 1px -3px rgba(0,0,0,0.2);
+    box-shadow: ${shadow};
 }
 
 h2{
@@ -31,67 +32,31 @@ h6{
 }
 
 .row {
-    width: 1020px;
+    max-width: 1080px;
+    margin: 25px auto;
     display: flex;
-    justify-content: flex-end;
-
+    justify-content: space-between;
 }
 .news {
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: relative;
-    width: 170px;
+    width: 23%;
     height: 70px;
-    margin: 25px;
-    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14), 0 1px 1px 0 rgba(0,0,0,0.12), 0 1px 1px -3px rgba(0,0,0,0.2);
+    box-shadow: ${shadow};
 }
 
-.container2 {
-     position: relative;
-     bottom: 143px;
-     display:inline-block;
-     width:450px;
-     height:370px;
-     margin:0px;
+.container {
+     display: flex;
+     margin: 0 auto;
+     max-width: 1080px;
+     justify-content: space-between;
 
-}
-
-.total {
-    margin:0px 0px 50px 160px;
-    width:260px;
-    height:160px;
-    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14), 0 1px 1px 0 rgba(0,0,0,0.12), 0 1px 1px -3px rgba(0,0,0,0.2);
-
-}
-.age {
-    margin:0px 0px 0px 160px;
-    width:260px;
-    height:160px;
-    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14), 0 1px 1px 0 rgba(0,0,0,0.12), 0 1px 1px -3px rgba(0,0,0,0.2);
-
-}
-
-.container3{
-    display: inline-block;
-    width: 620px;
-    height: 370px;
-
-}
-
-.sities{
-    display:inline-block;
-    margin:0px;
-    width: 260px;
-    height: 370px;
-    margin-right: 30px;
-    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14), 0 1px 1px 0 rgba(0,0,0,0.12), 0 1px 1px -3px rgba(0,0,0,0.2);
-}
-
-.birthdays{
-    display:inline-block;
-    margin:0px;
-    width: 260px;
-    height: 370px;
-    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14), 0 1px 1px 0 rgba(0,0,0,0.12), 0 1px 1px -3px rgba(0,0,0,0.2);
+     .box {
+         width: 32%;
+         box-shadow: ${shadow};
+     }
 }
 `;
 
@@ -101,11 +66,11 @@ class DashBoard extends Component {
             [
                 { sex: 'man', city: 'osh', age: 18, name: 'Daniil', surname: 'Kurishov' },
                 { sex: 'man', city: 'bishkek', age: 27, name: 'Jaynagul', surname: 'Kudaybergenova' },
-                { sex: 'man', city: 'batken', age: 22, name: 'Jaynagul', surname: 'Kudaybergenova' },
-                { sex: 'woman', city: 'kyzyl-kiya', age: 29, name: 'Jaynagul', surname: 'Kudaybergenova' },
-                { sex: 'woman', city: 'tokmok', age: 12, name: 'Jaynagul', surname: 'Kudaybergenova' },
+                { sex: 'man', city: 'bishkek', age: 22, name: 'Jaynagul', surname: 'Kudaybergenova' },
+                { sex: 'woman', city: 'bishkek', age: 29, name: 'Jaynagul', surname: 'Kudaybergenova' },
+                { sex: 'woman', city: 'bishkek', age: 12, name: 'Jaynagul', surname: 'Kudaybergenova' },
                 { sex: 'woman', city: 'bishkek', age: 7, name: 'Jaynagul', surname: 'Kudaybergenova' },
-                { sex: 'woman', city: 'moscow', age: 7, name: 'Jaynagul', surname: 'Kudaybergenova' },
+                { sex: 'woman', city: 'bishkek', age: 7, name: 'Jaynagul', surname: 'Kudaybergenova' },
             ]
     };
 
@@ -113,17 +78,16 @@ class DashBoard extends Component {
         let { myFamily } = this.state;
         let cities = [];
         let counts = [];
-        myFamily.map((pers) => cities.push(pers.city))
+        myFamily.map(pers => cities.push(pers.city));
 
         function countCities(arr) {
             arr.sort();
-
             let current = null;
             let cnt = 0;
             for (let i = 0; i < arr.length; i++) {
                 if (arr[i] !== current) {
                     if (cnt > 0) {
-                        counts.push({[current]: cnt});
+                        counts.push(`${current}: ${cnt}`);
                     }
                     current = arr[i];
                     cnt = 1;
@@ -132,14 +96,11 @@ class DashBoard extends Component {
                 }
             }
             if (cnt > 0) {
-                counts.push({[current]: cnt});
+                counts.push(`${current}: ${cnt}`);
             }
-
         }
-        countCities(cities);
+        countCities(cities)
         console.log(counts)
-         
-
         let totalMan = myFamily.filter(pers => pers.sex === 'man').length;
         let totalWoman = myFamily.filter(pers => pers.sex === 'woman').length;
 
@@ -151,7 +112,7 @@ class DashBoard extends Component {
         return (
 
             <Cart>
-                <div className="container">
+                <div className="title">
                     <div className="project"> <h2>Dashboard</h2></div>
                     <div className="data"> <h3 className="time">{`${day} ${date} ${year}`}</h3> </div>
                 </div>
@@ -173,16 +134,14 @@ class DashBoard extends Component {
                     </div>
                 </div>
 
-                <div className="container2">
-                    <div className="total">total: {myFamily.length}</div>
-                    <div className="age">age </div>
+                <div className="container">
+                    <div className="box">
+                        <div className="total">total: {myFamily.length}</div>
+                        <div className="age">age </div>
+                    </div>
+                    <div className="box cities">{counts.map((item, index) => <p>{item}</p>)}</div>
+                    <div className="box birthdays"></div>
                 </div>
-
-                <div className="container3">
-                    <div className="sities"> </div>
-                    <div className="birthdays"></div>
-                </div>
-
             </Cart>
         );
     }
