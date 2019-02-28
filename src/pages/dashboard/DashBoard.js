@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import styled from 'styled-components';
 
+let shadow = '0 1px 1px 0 rgba(0,0,0,0.14), 0 1px 1px 0 rgba(0,0,0,0.12), 0 1px 1px -3px rgba(0,0,0,0.2)';
 let Cart = styled.div`
-
-.container{
+.title{
     width:100%;
     height:100px;
     display: flex;
     justify-content:center;
-    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14), 0 1px 1px 0 rgba(0,0,0,0.12), 0 1px 1px -3px rgba(0,0,0,0.2);
+    box-shadow: ${shadow};
 }
 
 h2{
@@ -31,68 +31,33 @@ h6{
 }
 
 .row {
-    width: 1020px;
+    max-width: 1080px;
+    margin: 25px auto;
     display: flex;
-    justify-content: flex-end;
-
+    justify-content: space-between;
 }
 .news {
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: relative;
-    width: 170px;
+    width: 23%;
     height: 70px;
-    margin: 25px;
-    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14), 0 1px 1px 0 rgba(0,0,0,0.12), 0 1px 1px -3px rgba(0,0,0,0.2);
+    box-shadow: ${shadow};
 }
 
-.container2 {
-     position: relative;
-     bottom: 143px;
-     display:inline-block;
-     width:450px;
-     height:370px;
-     margin:0px;
+.container {
+     display: flex;
+     margin: 0 auto;
+     max-width: 1080px;
+     justify-content: space-between;
 
+     .box {
+         width: 32%;
+         box-shadow: ${shadow};
+     }
 }
 
-.total {
-    margin:0px 0px 50px 160px;
-    width:260px;
-    height:160px;
-    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14), 0 1px 1px 0 rgba(0,0,0,0.12), 0 1px 1px -3px rgba(0,0,0,0.2);
-
-}
-.age {
-    margin:0px 0px 0px 160px;
-    width:260px;
-    height:160px;
-    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14), 0 1px 1px 0 rgba(0,0,0,0.12), 0 1px 1px -3px rgba(0,0,0,0.2);
-
-}
-
-.container3{
-    display: inline-block;
-    width: 620px;
-    height: 370px;
-
-}
-
-.sities{
-    display:inline-block;
-    margin:0px;
-    width: 260px;
-    height: 370px;
-    margin-right: 30px;
-    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14), 0 1px 1px 0 rgba(0,0,0,0.12), 0 1px 1px -3px rgba(0,0,0,0.2);
-}
-
-.birthdays{
-    display:inline-block;
-    margin:0px;
-    width: 260px;
-    height: 370px;
-    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14), 0 1px 1px 0 rgba(0,0,0,0.12), 0 1px 1px -3px rgba(0,0,0,0.2);
-}
 `;
 
 class DashBoard extends Component {
@@ -113,17 +78,28 @@ class DashBoard extends Component {
         let { myFamily } = this.state;
         let cities = [];
         let counts = [];
+<<<<<<< HEAD
         myFamily.map((pers) => cities.push(pers.city))
 
         function countCities(arr) {
             arr.sort();
 
+=======
+        myFamily.map(pers => cities.push(pers.city));
+
+        function countCities(arr) {
+            arr.sort();
+>>>>>>> a17de29c01a65ca87911a054c8c3d128daeffb4d
             let current = null;
             let cnt = 0;
             for (let i = 0; i < arr.length; i++) {
                 if (arr[i] !== current) {
                     if (cnt > 0) {
+<<<<<<< HEAD
                         counts.push({[current]: cnt});
+=======
+                        counts.push(`${current}: ${cnt}`);
+>>>>>>> a17de29c01a65ca87911a054c8c3d128daeffb4d
                     }
                     current = arr[i];
                     cnt = 1;
@@ -132,6 +108,7 @@ class DashBoard extends Component {
                 }
             }
             if (cnt > 0) {
+<<<<<<< HEAD
                 counts.push({[current]: cnt});
             }
 
@@ -140,6 +117,13 @@ class DashBoard extends Component {
         console.log(counts)
          
 
+=======
+                counts.push(`${current}: ${cnt}`);
+            }
+        }
+        countCities(cities)
+        console.log(counts)
+>>>>>>> a17de29c01a65ca87911a054c8c3d128daeffb4d
         let totalMan = myFamily.filter(pers => pers.sex === 'man').length;
         let totalWoman = myFamily.filter(pers => pers.sex === 'woman').length;
 
@@ -151,7 +135,7 @@ class DashBoard extends Component {
         return (
 
             <Cart>
-                <div className="container">
+                <div className="title">
                     <div className="project"> <h2>Dashboard</h2></div>
                     <div className="data"> <h3 className="time">{`${day} ${date} ${year}`}</h3> </div>
                 </div>
@@ -173,16 +157,14 @@ class DashBoard extends Component {
                     </div>
                 </div>
 
-                <div className="container2">
-                    <div className="total">total: {myFamily.length}</div>
-                    <div className="age">age </div>
+                <div className="container">
+                    <div className="box">
+                        <div className="total">total: {myFamily.length}</div>
+                        <div className="age">age </div>
+                    </div>
+                    <div className="box cities">{counts.map((item, index) => <p>{item}</p>)}</div>
+                    <div className="box birthdays"></div>
                 </div>
-
-                <div className="container3">
-                    <div className="sities"> </div>
-                    <div className="birthdays"></div>
-                </div>
-
             </Cart>
         );
     }
