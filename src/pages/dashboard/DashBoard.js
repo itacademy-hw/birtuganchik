@@ -20,7 +20,7 @@ h3{
     margin-top:10px;
 }
 h6{
-    margin:0px;
+   margin:0px;
 }
 
 .project {
@@ -49,10 +49,38 @@ h6{
 
 }
 
+.people {
+    padding-right: 120px;
+    display:flex;
+}
 
+.people1 {
+    padding-right: 104px;
+    display:flex;
+}
+
+.people2 {
+    padding-right: 75px;
+    display:flex;
+}
+
+.people3 {
+    padding-right: 80px;
+    display:flex;
+}
+
+.place {
+    margin-left: 10px;
+    width: 30px;
+    border: solid 1px;
+    text-align: center;
+    border-radius: 5px;
+}
 
 img {
-width:40px;
+    margin: 10px;
+    max-width:40px;
+    height:40px;
 }
 
 .container {
@@ -77,8 +105,8 @@ class DashBoard extends Component {
                 { sex: 'man', city: 'bishkek', age: 22, name: 'Jaynagul', surname: 'Kudaybergenova' },
                 { sex: 'woman', city: 'bishkek', age: 29, name: 'Jaynagul', surname: 'Kudaybergenova' },
                 { sex: 'woman', city: 'bishkek', age: 12, name: 'Jaynagul', surname: 'Kudaybergenova' },
-                { sex: 'woman', city: 'bishkek', age: 7, name: 'Jaynagul', surname: 'Kudaybergenova' },
-                { sex: 'woman', city: 'bishkek', age: 7, name: 'Jaynagul', surname: 'Kudaybergenova' },
+                { sex: 'GrandMother', city: 'bishkek', age: 7, name: 'Jaynagul', surname: 'Kudaybergenova' },
+                { sex: 'GrandFather', city: 'bishkek', age: 7, name: 'Jaynagul', surname: 'Kudaybergenova' },
             ]
     };
 
@@ -111,7 +139,9 @@ class DashBoard extends Component {
         console.log(counts)
         let totalMan = myFamily.filter(pers => pers.sex === 'man').length;
         let totalWoman = myFamily.filter(pers => pers.sex === 'woman').length;
-
+        let totalGrandMother = myFamily.filter(pers => pers.sex === 'GrandMother').length;
+        let totalGrandFather = myFamily.filter(pers => pers.sex === 'GrandFather').length;
+            
         let time = new Date().getTime();
         let day = new Date(time).getDay().toString();
         let date = new Date(time).getDate().toString();
@@ -128,19 +158,35 @@ class DashBoard extends Component {
                 <div className="row">
                     <div className="news">                
                     <img src={"./image/man.png"}/>    
-                        <h6>Men</h6>
-                        <h6 className="man">{totalMan}</h6>
-                     
+                       <div className="people">
+                       <h6>Men:</h6>   
+                       <div className="place"><h6 className="man">{totalMan}</h6></div> 
+                       </div> 
+                        
                     </div>
                     <div className="news">
-                        <h6>Women</h6>
-                        <h6 className="female">{totalWoman}</h6>
+                    <img src={"./image/woman.png"}/> 
+                    <div className="people1">
+                       <h6>Women:</h6>
+                       <div className="place"><h6 className="female">{totalWoman}</h6></div>
+                    </div>
+                         
                     </div>
                     <div className="news">
-                        <h6>GrandMother</h6>
+                    <img src={"./image/grandma.png"}/>
+                    <div className="people2">
+                        <h6>GrandMother:</h6>
+                        <div className="place"><h6 className="female">{totalGrandMother}</h6></div>
+                    </div> 
+                        
                     </div>
                     <div className="news">
-                        <h6>GrandFather</h6>
+                    <img  src={"./image/grandpa.png"}/>
+                    <div className="people3">
+                       <h6>GrandFather:</h6>
+                       <div className="place"><h6 className="female">{totalGrandFather}</h6></div>
+                    </div> 
+                        
                     </div>
                 </div>
 
