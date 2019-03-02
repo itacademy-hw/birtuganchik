@@ -42,10 +42,12 @@ let SignUpPage = styled.div`
     }
     .inputSignUp{
         background: transparent;
-        border:0 none;
-        border-top: 1px;
-        margin:0;
-        padding:0;
+        border-top: 0;
+        border-left: 0;
+        border-right: 0;
+        border-color: #89b9e0;
+        margin:17px;
+        padding:5px;
         outline: none;
         -moz-placeholder { color: red; }
         ::-webkit-input-placeholder {color:black;}
@@ -95,6 +97,10 @@ let SignUpPage = styled.div`
         grid-row: 2;
         text-align: center;
         //background-color: #b8b7e282;
+    }
+    .icons{
+        width: 25px;
+        float: right;
     }
 `;
 
@@ -165,41 +171,43 @@ class SignUp extends Component {
                         <h1>Sign Up</h1>
                         <div className="flexed">
                             <form className="signup_form">
-
+                                <div>
                                 <input
                                     placeholder='Your email'
                                     onChange={(e) => this.createPerson(e.target.value, 'email')}
                                     type="text"
                                     id="signup_username"
-                                    className={set === 'email' && set}
+                                    className="inputSignUp"
                                 />
-                                <p>First Name</p>
+                                    <i>email.png</i> 
+                                </div>
                                 <input
+                                    placeholder='Your first name'
                                     onChange={(e) => this.createPerson(e.target.value, 'firstName')}
                                     type="text"
                                     id="signup_firstname"
-                                    className={set === 'firstName' && set}
+                                    className="inputSignUp"
                                 />
-                                <p>Last Name</p>
                                 <input
+                                    placeholder='Your last name'
                                     onChange={(e) => this.createPerson(e.target.value, 'lastName')}
                                     type="text"
                                     id="signup_lastname"
-                                    className={set === 'lastName' && set}
+                                    className="inputSignUp"
                                 />
-                                <p>Age</p>
                                 <input
+                                    placeholder='Your age'
                                     onChange={(e) => this.createPerson(e.target.value, 'age')}
                                     type="text"
                                     id="signup_age"
-                                    className={set === 'age' && set}
+                                    className="inputSignUp"
                                 />
-                                <p>Password</p>
                                 <input
+                                    placeholder='Your password'
                                     onChange={(e) => this.createPerson(e.target.value, 'password')}
                                     type="text"
                                     id="signup_password"
-                                    className={set === 'password' && set}
+                                    className="inputSignUp"
                                 />
                                 <div>
                                     {/*  <button onClick={() => this.signUp()} className="btn_signUp">Sign Up</button> */}
