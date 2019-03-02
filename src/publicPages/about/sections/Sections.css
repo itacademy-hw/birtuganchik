@@ -1,15 +1,13 @@
   .parentDiv{
     display: inline-block;
     position: relative;
-    border: 1px solid;
-    width: 80%;
-    height: 80%;
+    width: 1081.19px;
+    height: 514px;
     margin: 4% 10%;
         }
   #top-left{
     width: 45%;
     height:45%;
-    border:1px solid;
     display: inline-block;
     position: relative;
     left:30px;
@@ -21,7 +19,6 @@
   #top-right{
     width: 45%;
     height:45%;
-    border:1px solid;
     display: inline-block;
     position: relative;
     left: 70px;
@@ -32,10 +29,8 @@
   #bottom-left{
     width: 45%;
     height:45%;
-    border:1px solid;
     display: inline-block;
     position: relative;
-    top: 38px;
     left: 30px;
     border-radius: 6px;
     background:#2b5a84;
@@ -44,50 +39,113 @@
   #bottom-right{
     width: 45%;
     height:45%;
-    border:1px solid;
     display: inline-block;
     position: relative;
-    top: 38px;
     left:70px;
     border-radius: 6px;
     background: #1bb1e4;
     box-shadow: #00000078 0px 2px 5px 2px;
   }
-  .innerDivL{
-    width: 45%;
-    height: 70%;
-    display: inline-block;
-    left: 32px;
-    position: relative;
+ 
+.socialNet{
+  width: 90%;
+  height: 45px;
+  bottom: 60px;
+  left: 5%;
+  display: inline-block;
+  position: relative;
+}
+h2{
+  color: white;
+}
+.text{
+  font-size: 12px;
+  display: table;
+  color: white;
+}
+.btn{
+  display: table;
+  top: 10px;
+  position: relative;
+}
+
+.bounceInLeft {
+  -webkit-animation-name: bounceInLeft;
+  animation-name: bounceInLeft;
+}
+
+@-webkit-keyframes bounceInRight {
+  from,
+  60%,
+  75%,
+  90%,
+  to {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
   }
-  .innerDiv{
-    width: 44%;
-    height: 52%;
-    display: inline-block;
-    position: relative;
-    left: 43px;
-    bottom: 1px;
-    background: url(https://i.ytimg.com/vi/0rgm1lo26ZY/maxresdefault.jpg);
-    background-size: cover;
-    box-shadow: #00000078 0px 2px 5px 2px;
+
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(3000px, 0, 0);
+    transform: translate3d(3000px, 0, 0);
   }
-  .socialNet{
-    width: 90%;
-    height: 45px;
-    top: 15px;
-    left: 5%;
-    display: inline-block;
-    position: relative;
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translate3d(-25px, 0, 0);
+    transform: translate3d(-25px, 0, 0);
   }
-  h2{
-    color: white;
+
+  75% {
+    -webkit-transform: translate3d(10px, 0, 0);
+    transform: translate3d(10px, 0, 0);
   }
-  .text{
-    display: table;
-    color: white;
+
+  90% {
+    -webkit-transform: translate3d(-5px, 0, 0);
+    transform: translate3d(-5px, 0, 0);
   }
-  .btn{
-    display: table;
-    top: 10px;
-    position: relative;
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
   }
+}
+
+@keyframes bounceInRight {
+  from,
+  60%,
+  75%,
+  90%,
+  to {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(3000px, 0, 0);
+    transform: translate3d(3000px, 0, 0);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translate3d(-25px, 0, 0);
+    transform: translate3d(-25px, 0, 0);
+  }
+
+  75% {
+    -webkit-transform: translate3d(10px, 0, 0);
+    transform: translate3d(10px, 0, 0);
+  }
+
+  90% {
+    -webkit-transform: translate3d(-5px, 0, 0);
+    transform: translate3d(-5px, 0, 0);
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}

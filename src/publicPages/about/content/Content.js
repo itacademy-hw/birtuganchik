@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import Button from '../../../components/Button';
-import Popup from '../../../components/Popup';
 import Sections from '../sections/Sections';
 import './Content.css';
 
@@ -67,10 +65,7 @@ class Content extends Component {
                         А тот в свою очередь, заполнит анкету о себе подробно.
                     </p>
                 </ContentDiv>
-
-                <Sections>
-                    
-                </Sections>
+                <Sections/>
             </>
         );
     }
