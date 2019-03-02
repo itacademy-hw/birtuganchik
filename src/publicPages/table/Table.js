@@ -6,15 +6,50 @@ let src = 'http://pikchyriki.net/avatar/krutye/100/21.jpg';
 let Headers = styled.div`
   display: grid;
   grid-template-columns: 1% 10% 11% 13% 20% 15% 30%;
-  padding: 10px;
-  color: white;
+  // padding: 10px;
   font-size: 26px;
   text-align: center;
-  background-color: green;
   cursor: pointer;
+  background-color: green;
+  color: white;
 
-  span {
+  // padding: 0;
+  // margin: 0;
 
+  // p {
+  //   padding: 0;
+  //   margin: 0;
+
+  // }
+
+  // span {
+  // }
+
+  span::selection {
+    background: transparent;
+  }
+  span::-moz-selection {
+    background: transparent;
+  }
+
+  span:hover {
+    // transition: .4s;
+    // text-color: transparent;
+    // background-color: purple;
+    // text-shadow: 0 0 5px green;
+  }
+
+  animation: mig  15s infinite alternate;
+  }
+  @keyframes mig {
+  0% {
+    background: green;
+  }
+  50% {
+    background: orange;
+  }
+  100% {
+    background: purple;
   }
 `;
 
@@ -23,7 +58,6 @@ let Body = styled.div`
 `;
 
 let RowElement = styled.div`
-
   display: grid;
   grid-template-columns: 1% 10% 9% 15% 20% 15% 30%;
   padding: 10px;
@@ -34,6 +68,15 @@ let RowElement = styled.div`
   img {
     height: 30px;
   }
+
+  .email {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+
+  .addr {
+    // text-align: left;
+  }
 `;
 
 class Login extends Component {
@@ -41,7 +84,7 @@ class Login extends Component {
     search: '',
     headers: [
       {title: '☑', sortKey: 'checkbox', sortable: false},
-      {title: 'Avatar', sortKey: 'avatar', sortable: true},
+      {title: 'Avatar', sortKey: 'avatar', sortable: false},
       {title: 'Relationship', sortKey: 'relationship', sortable: true},
       {title: 'First Name', sortKey: 'name', sortable: true},
       {title: 'Last Name/Surname', sortKey: 'surname', sortable: true},
@@ -94,31 +137,48 @@ class Login extends Component {
         email: 'dxample@mail.xxx',
         address: 'Dplanet Venus, Eve town, Fem street 1',
       }
-      ]
-  }
-
-  sortTable = (header) => {
-    if (!header.sortable) return;
-
-    let {rows} = this.state;
-    console.log('Массив который нужно сортировать', rows);
-    console.log('По', header.sortKey);
+      ],
+    sorted: false
   };
+
+  sortTable = prop => {
+    let { rows, sorted } = this.state;
+
+    let sortedRows = rows.sort((a, b) => {
+      if(a[prop] < b[prop]) {
+        return -1;
+      }
+      if(a[prop] > b[prop]) {
+        return 1;
+      }
+        return 0;
+    });
+      if(sorted) {
+        sortedRows.reverse()
+      this.setState({ rows: sortedRows, sorted: !sorted })
+      }
+    this.setState({ rows: sortedRows, sorted: !sorted })
+  }
 
 render() {
 
   let { search, headers, rows } = this.state;
+  // let buttons = <div><button>asas</button><button>asas</button></div>
   return (
     <>
+      {/*  <div>
+        {rows.map(i => <div onClick={() => this.sortTable('name')}>{i.name}</div>)}
+       </div>  */}
       <input type="text" name="search" onChange={e => this.setState({search: e.target.value})}/>
 
       <Headers className="grid-header">
         {headers.map((item, index) =>
           <span key={index} onClick={() => this.sortTable(item)}> {item.title} </span>
+          // <span key={index} onClick={() => this.sortTable(item)}> <p> {item.title} </p> </span> with <p> *to test
         )}
       </Headers>
 
-      <Body className="body">
+      <Body>
         {
           rows.filter(
             (row) => row.name.toLowerCase().includes(search) || row.surname.toLowerCase().includes(search))
@@ -129,8 +189,8 @@ render() {
               <span className="grid-item">{item.relationship} </span>
               <span className="grid-item">{item.name} </span>
               <span className="grid-item">{item.surname} </span>
-              <span className="grid-item">{item.email} </span>
-              <span className="grid-item">{item.address} </span>
+              <span className="grid-item email">{item.email} </span>
+              <span className="grid-item addr">{item.address} </span>
             </RowElement>
           )
         }
