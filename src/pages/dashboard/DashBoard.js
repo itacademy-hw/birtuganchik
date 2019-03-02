@@ -37,14 +37,22 @@ h6{
     display: flex;
     justify-content: space-between;
 }
+
 .news {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items:center;
     position: relative;
     width: 23%;
     height: 70px;
     box-shadow: ${shadow};
+
+}
+
+
+
+img {
+width:40px;
 }
 
 .container {
@@ -118,13 +126,15 @@ class DashBoard extends Component {
                 </div>
 
                 <div className="row">
-                    <div className="news">
+                    <div className="news">                
+                    <img src={"./image/man.png"}/>    
                         <h6>Men</h6>
-                        <div className="man">{totalMan}</div>
+                        <h6 className="man">{totalMan}</h6>
+                     
                     </div>
                     <div className="news">
                         <h6>Women</h6>
-                        <div className="female">{totalWoman}</div>
+                        <h6 className="female">{totalWoman}</h6>
                     </div>
                     <div className="news">
                         <h6>GrandMother</h6>
@@ -142,6 +152,7 @@ class DashBoard extends Component {
                     <div className="box cities">{counts.map((item, index) => <p>{item}</p>)}</div>
                     <div className="box birthdays"></div>
                 </div>
+              
             </Cart>
         );
     }
