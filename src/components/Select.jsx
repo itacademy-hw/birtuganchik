@@ -12,7 +12,7 @@ class Select extends Component {
         let { onchange, option } = this.props;
         return (
             <Sel onChange={onchange}>
-                <option>{option}</option>
+                {option.map(item => <option>{item}</option>)}
             </Sel>
         );
     }

@@ -32,10 +32,10 @@ let Btn = styled.button`
 class Button extends Component {
     state = {  }
     render() {
-        let { text, login, remove, onclick } = this.props;
+        let { text, green, red, onclick } = this.props;
 
         return (
-            <Btn onClick={() => onclick && onclick()} login={login} remove={remove}>{text}</Btn>
+            <Btn onClick={() => onclick && onclick()} green={green} red={red}>{text}</Btn>
         );
     }
 }

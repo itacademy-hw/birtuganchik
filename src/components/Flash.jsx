@@ -27,12 +27,6 @@ let FlashNotification = styled.div`
 `
 
 class Flash extends Component {
-    state = { 
-
-     }
-
-
-
 
     render() {
 

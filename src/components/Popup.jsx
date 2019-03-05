@@ -13,9 +13,26 @@ let Overlay = styled.div`
     position:   fixed;
 `
 let Body = styled.div`
-    width: 400px;
-    height: 400px;
-    position: absolute;
+    ${
+        props => props.width ? `
+            width: ${props.width}
+        `
+        :
+        `
+            width: 400px;
+        `
+    }
+    ${
+        props => props.height ? `
+            height: ${props.height}
+        `
+        :
+        `
+            height: 400px;
+        `
+    }
+    
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -28,11 +45,11 @@ let Body = styled.div`
 
 class Popup extends Component {
     render() {
-        let { title, showPopup, hidePopup } = this.props;
+        let { title, showPopup, hidePopup, width, height } = this.props;
         return (
             showPopup &&
                 <>
-                    <Overlay onClick={() => hidePopup()}/>
+                    <Overlay width={width} height={height} onClick={() => hidePopup()}/>
                     <Body>
                         <h1>{title}</h1>
                         <div>
