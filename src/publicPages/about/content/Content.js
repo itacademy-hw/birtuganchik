@@ -7,14 +7,13 @@ let Image = styled.div`
     height: 56px;
     background: url(../img/logo.png)no-repeat;
     background-size: 100%;
-    position: relative;
-    display: inline-block;
-    width: 150px;
-    margin: 5px 0 -27px 0px;
+    width: 142px;
+    margin-left: 28%;
+    margin-bottom: -67px;
+    justify-content: center;
 `;
 
 let Wrds = styled.div`
-    display: inline-block;
     top: 0;
     right: 0;
     font-size: 10px;
@@ -24,11 +23,11 @@ let Wrds = styled.div`
     h1{
         color: blueviolet;
         font-family: cursive;
+        margin-left: 15%;
     }
 `;
 
 let ContentDiv = styled.div`
-    display: inline-block;
     text-align: center;
     background: #ffffff57;
     margin: 0px 10%

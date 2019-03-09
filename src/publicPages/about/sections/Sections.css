@@ -1,11 +1,4 @@
-  .parentDiv{
-    display: inline-block;
-    position: relative;
-    width: 1081.19px;
-    height: 514px;
-    margin: 4% 10%;
-        }
-  #top-left{
+/*  #top-left{
     width: 45%;
     height:45%;
     display: inline-block;
@@ -149,3 +142,57 @@ h2{
     transform: translate3d(0, 0, 0);
   }
 }
+
+<div className='inner'>
+               <div className="textSect">
+                  <h2>Hello World</h2>
+                  <p>dfasd asdfasdf asdfasdf asdfasdfasdf asdfasdfasdfasd
+                      asdfasdfasdfasdasdf
+                       asdfasdfasdfasd d
+                       asdfds
+                  </p>
+                  <Button text="подробнее"/>
+                </div>
+                <div className="imgSect">
+                4</div>
+                <div className="socNet"></div>
+                 </div>
+             <div className='inner'>
+             <div className="textSect">
+                  <h2>Hello World</h2>
+                  <p>dfasd asdfasdf asdfasdf asdfasdfasdf asdfasdfasdfasd
+                      asdfasdfasdfasdasdf
+                       asdfasdfasdfasd d
+                       asdfds
+                  </p>
+                </div>
+                <div className="imgSect"></div>
+                <div className="socNet"></div>
+                </div>
+             <div className='inner'>
+             <div className="textSect">
+                  <h2>Hello World</h2>
+                  <p>dfasd asdfasdf asdfasdf asdfasdfasdf asdfasdfasdfasd
+                      asdfasdfasdfasdasdf
+                       asdfasdfasdfasd d
+                       asdfds
+                  </p>
+                </div>
+                <div className="imgSect"></div>
+                <div className="socNet"></div>
+                 </div>
+             
+            <div className='inner'>
+                <div className="textSect">
+                  <h2>Hello World</h2>
+                  <p>dfasd asdfasdf asdfasdf asdfasdfasdf asdfasdfasdfasd
+                      asdfasdfasdfasdasdf
+                       asdfasdfasdfasd d
+                       asdfds
+                  </p>
+                </div>
+                <div className="imgSect"></div>
+                <div className="socNet"></div>
+                 </div>
+
+*/
