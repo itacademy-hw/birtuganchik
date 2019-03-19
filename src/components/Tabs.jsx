@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import styled from 'styled-components';
 
+
+
+
 let TabBar = styled.div`
     width: 100%;
     height: 80px;
@@ -21,7 +24,11 @@ let TabBar = styled.div`
 class Tabs extends Component {
     state = { 
         selected: null
-     }
+    }
+
+   
+    
+
     render() {
         let { tabTitles , tabs } = this.props;
         let { selected } = this.state;

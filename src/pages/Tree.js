@@ -13,8 +13,8 @@ const myTreeData = [
             {
                 name: '1e pokolenie',
                 attributes: {
-                    hus: 'Babushka Babushkovna',
-                    wife: 'Dedushka Dedushka',
+                    hus: 'Babushka',
+                    wife: 'Dedushka',
                     husImg: testImg,
                     wifeImg: testImg
                 },
@@ -62,9 +62,13 @@ const myTreeData = [
 ];
 
 let style = {
-    width: 50,
-    height: 50,
-    borderRadius: '50%'
+    width: 60,
+    height: 60,
+    borderRadius: '50%',
+    position: "relative",
+    top: -20,
+    left: -45,
+    border: "solid 3px black"
 }
 class NodeLabel extends React.PureComponent {
     render() {
@@ -85,17 +89,20 @@ class NodeLabel extends React.PureComponent {
                     alt='as'
                     src={data.wifeImg} />
                     </>
-                    : nodeData.name
+                    : <span style={{display: "block", position: "relative", top: "-25px", left: "-80px", textAlign: "center"}}>{nodeData.name}</span> 
                 }
-                {
-                    data && data.hus + '/' + data.wife
-                }
+                <span style={{display: "block", position: "relative", top: "-25px", left: "-80px", textAlign: "center"}}>
+                    {
+                        data && data.hus + '/' + data.wife
+                    }
+                </span> 
           </div>
 
         )
     }
 }
 let Container = styled.div`
+    display: inline-block;
     width: 100%;
     min-height: 500px;
     p {
@@ -103,80 +110,26 @@ let Container = styled.div`
         text-align: left;
     }
     .rd3t-tree-container > svg {
-        height: 1000px;
+        min-height: 1000px;
     }
     foreignObject {
     width: 200px;
     height: 200px;
-    y: 0;
+    y: -10;
+    x: -21;
 }
 `;
 
 class RootTree extends Component {
     render() {
-        let family = [
-            {
-                id: 'fam1',
-                name: 'Aydarbekovy',
-                root: ['a1b1', 'a2b2'],
-            },
-            {
-                id: 'fam2',
-                name: 'Nemcovy',
-                root: ['b2', 'b3'],
-            },
-        ];
-
-        let members = [
-            {
-                id: 'a1b1',
-                spouse: 'a2b2',
-                name: 'Babushka Babushkovna',
-                fio: 'Babu',
-                address: 'Addres asas',
-                age: 70,
-                children: ['aa1', 'aa2'],
-                familyId: 'fam1',
-                root: true
-            },
-            {
-                id: 'a2b2',
-                spouse: 'a1b1',
-                name: 'Dedushka Dedushka',
-                fio: 'Dedu',
-                address: 'Addres asas',
-                children: ['aa1', 'aa2'],
-                age: 70,
-                familyId: 'fam1',
-                root: true
-            },
-            {
-                id: 'aa1',
-                spouse: 'a1b1',
-                name: 'Syn',
-                fio: 'asas',
-                address: 'Addres asas',
-                age: 70,
-                children: ['aa1', 'aa2'],
-                familyId: 'fam1'
-            },
-            {
-                id: 'aa2',
-                spouse: 'a1b1',
-                name: 'Doch',
-                fio: 'asas',
-                address: 'Addres asas',
-                age: 70,
-                children: ['aa1', 'aa2'],
-                familyId: 'fam1'
-            }
-        ]
         return (
             <Container>
                 <Tree
                     data={myTreeData}
                     orientation="vertical"
-                    collapsible={true}
+                    collapsible={false}
+                    circleRadius="1"
+                    pathFunc="diagonal"
                     translate={{
                         x: 239, y: 200
                     }}
@@ -188,7 +141,8 @@ class RootTree extends Component {
                     nodeLabelComponent={{
                         render: <NodeLabel className='myLabelComponentInSvg' />,
                         foreignObjectWrapper: {
-                            y: 24
+                            y: 24,
+                            overflow: "inherit"
                         }
                     }}
                 />

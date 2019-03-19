@@ -4,6 +4,7 @@ import Progress from "./components/Progress"
 import Select from "./components/Select"
 import Checkbox from "./components/Checkbox"
 import Header from "./components/Header"
+import RootTree from "./pages/Tree"
 
 
 
@@ -35,6 +36,7 @@ export default class App extends Component {
                 </UiCard> */}
                 <Checkbox />
                 <Progress width="10%"/>
+                <RootTree />
             </div>
         );
     }
