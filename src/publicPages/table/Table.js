@@ -5,25 +5,32 @@ let src = 'http://pikchyriki.net/avatar/krutye/100/21.jpg';
 
 let Headers = styled.div`
   display: grid;
-  grid-template-columns: 1% 10% 11% 13% 20% 15% 30%;
-  // padding: 10px;
+  grid-template-columns: 1% 7% 12% 15% 20% 15% 30%;
+  padding: 11px 15px;
   font-size: 26px;
   text-align: center;
   cursor: pointer;
-  background-color: green;
   color: white;
+  box-shadow: 0px 5px 20px 2px #888888;
+  -webkit-box-shadow: 0px 5px 20px 2px #888888;
+  -moz-box-shadow: 0px 5px 20px 2px #888888;
 
-  // padding: 0;
-  // margin: 0;
+  animation: mig 15s infinite alternate;
+  @keyframes mig {
+    0%    {background: green;}
+    50%   {background: orange;}
+    100%  {background: purple;}
+  }
+  
+  span:nth-child(even),
+  span:nth-child(odd) {
+    border-left: 1px solid;
+  }
 
-  // p {
-  //   padding: 0;
-  //   margin: 0;
-
-  // }
-
-  // span {
-  // }
+  span:first-child,
+  span:nth-child(2) {
+    border: none;
+  }
 
   span::selection {
     background: transparent;
@@ -31,42 +38,38 @@ let Headers = styled.div`
   span::-moz-selection {
     background: transparent;
   }
-
-  span:hover {
-    // transition: .4s;
-    // text-color: transparent;
-    // background-color: purple;
-    // text-shadow: 0 0 5px green;
-  }
-
-  animation: mig  15s infinite alternate;
-  }
-  @keyframes mig {
-  0% {
-    background: green;
-  }
-  50% {
-    background: orange;
-  }
-  100% {
-    background: purple;
-  }
 `;
 
 let Body = styled.div`
-
+  div:nth-child(odd) {
+    background: #4444441f;
+  }
 `;
 
 let RowElement = styled.div`
   display: grid;
-  grid-template-columns: 1% 10% 9% 15% 20% 15% 30%;
+  grid-template-columns: 1% 7% 12% 15% 20% 15% 30%;
   padding: 10px;
   font-size: 18px;
-  font-weight: 450;
+  font-weight: 400;
   text-align: center;
 
+  span {
+  }
+
+  RowElement:nth-child(even) {
+    background: #CCC;
+  }
+
+  RowElement:nth-child(odd) {
+    background: #FFF;
+  }
+
+  span:hover {
+  }
+
   img {
-    height: 30px;
+    height: 29px;
   }
 
   .email {
@@ -75,7 +78,7 @@ let RowElement = styled.div`
   }
 
   .addr {
-    // text-align: left;
+    text-align: right;
   }
 `;
 
@@ -83,7 +86,7 @@ class Login extends Component {
   state = {
     search: '',
     headers: [
-      {title: '☑', sortKey: 'checkbox', sortable: false},
+      {title: '', sortKey: 'checkbox', sortable: false},
       {title: 'Avatar', sortKey: 'avatar', sortable: false},
       {title: 'Relationship', sortKey: 'relationship', sortable: true},
       {title: 'First Name', sortKey: 'name', sortable: true},
@@ -131,6 +134,24 @@ class Login extends Component {
       {
         checkbox: <input type="checkbox"/>,
         avatar: <img src={src} alt="alt"/>,
+        relationship: 'Dad',
+        name: 'CName',
+        surname: 'BFamilyiev',
+        email: 'cxample@mail.xxx',
+        address: 'Cplanet Pluto, Boss town, Daddy street 01',
+      },
+      {
+        checkbox: <input type="checkbox"/>,
+        avatar: <img src={src} alt="alt"/>,
+        relationship: 'Dad',
+        name: 'CName',
+        surname: 'BFamilyiev',
+        email: 'cxample@mail.xxx',
+        address: 'Cplanet Pluto, Boss town, Daddy street 01',
+      },
+      {
+        checkbox: <input type="checkbox"/>,
+        avatar: <img src={src} alt="alt"/>,
         relationship: 'Wife',
         name: 'DName',
         surname: 'AFamilyiev',
@@ -145,7 +166,7 @@ class Login extends Component {
     let { rows, sorted } = this.state;
 
     let sortedRows = rows.sort((a, b) => {
-      if(a[prop] < b[prop]) {
+      if(a[prop].toLowerCase() < b[prop].toLowerCase()) {
         return -1;
       }
       if(a[prop] > b[prop]) {
@@ -173,8 +194,7 @@ render() {
 
       <Headers className="grid-header">
         {headers.map((item, index) =>
-          <span key={index} onClick={() => this.sortTable(item)}> {item.title} </span>
-          // <span key={index} onClick={() => this.sortTable(item)}> <p> {item.title} </p> </span> with <p> *to test
+          <span key={index} onClick={() => this.sortTable(item.sortKey)}> {item.title} </span>
         )}
       </Headers>
 
@@ -183,7 +203,7 @@ render() {
           rows.filter(
             (row) => row.name.toLowerCase().includes(search) || row.surname.toLowerCase().includes(search))
             .map((item, index) =>
-            <RowElement key={index}>
+            <RowElement className="RowsElements" key={index}>
               <span className="grid-item">{item.checkbox} </span>
               <span className="grid-item">{item.avatar} </span>
               <span className="grid-item">{item.relationship} </span>
