@@ -28,15 +28,7 @@ export default class App extends Component {
             ]
         return (
             <div id="root">
-            <Header />
-                <Tabs tabTitles={tabTitles} tabs={tabs}/>
-                <Select option={options}/>
-                {/* <UiCard image="" header="Title" footer="FOOTER">
-                    awawhfbwafawCHILDREN
-                </UiCard> */}
-                <Checkbox />
-                <Progress width="10%"/>
-                <RootTree />
+            
             </div>
         );
     }
